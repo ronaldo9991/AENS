@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { SectionDivider, CrosshairOverlay } from "@/components/ui/SectionElements";
+import { CrosshairOverlay } from "@/components/ui/SectionElements";
 import { 
   CrosshairIcon, 
   ShieldNodeIcon, 
@@ -19,10 +19,12 @@ export default function About() {
     { title: "Trust", icon: ConcentricArcsIcon, desc: "From governance to deepfake defence — AENS is the verifiable layer of truth in your stack." }
   ];
 
-  const milestones = [
-    { year: "2023", title: "Genesis", desc: "Founded to bring autonomous AI agents to regulated B2B environments." },
-    { year: "2024", title: "Agentic Platform", desc: "Multi-step reasoning, tool use and human-in-the-loop launched at enterprise scale." },
-    { year: "2025", title: "Enterprise Scaling", desc: "Adopted by Fortune 100 companies across finance, defence and global media." }
+  // Operational doctrine — used in restyled section
+  const doctrine = [
+    { num: "01", title: "Precision First", desc: "False positives are unacceptable. Sub-50ms latency. Every decision auditable." },
+    { num: "02", title: "Air-Gapped Ready", desc: "Deployed directly into classified and regulated enterprise environments." },
+    { num: "03", title: "Multi-Modal", desc: "Simultaneous analysis across video, audio, text and metadata." },
+    { num: "04", title: "Custom by Default", desc: "We engineer AI for your business — never generic, never one-size-fits-all." },
   ];
 
   return (
@@ -82,23 +84,20 @@ export default function About() {
               viewport={{ once: true }}
               className="md:col-span-5 relative"
             >
-              <div className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-none text-foreground space-y-4">
-                <div className="flex items-center gap-6 group">
-                  <span className="text-primary font-mono text-2xl w-8">A</span>
-                  <span className="opacity-40 group-hover:opacity-100 transition-opacity">Artificial</span>
-                </div>
-                <div className="flex items-center gap-6 group">
-                  <span className="text-primary font-mono text-2xl w-8">E</span>
-                  <span className="opacity-40 group-hover:opacity-100 transition-opacity">Enterprise</span>
-                </div>
-                <div className="flex items-center gap-6 group">
-                  <span className="text-primary font-mono text-2xl w-8">N</span>
-                  <span className="opacity-40 group-hover:opacity-100 transition-opacity">Nervous</span>
-                </div>
-                <div className="flex items-center gap-6 group">
-                  <span className="text-primary font-mono text-2xl w-8">S</span>
-                  <span className="opacity-40 group-hover:opacity-100 transition-opacity">System</span>
-                </div>
+              <div className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-foreground space-y-2">
+                {[
+                  { l: "A", w: "Artificial" },
+                  { l: "E", w: "Enterprise" },
+                  { l: "N", w: "Nervous" },
+                  { l: "S", w: "System" },
+                ].map((row) => (
+                  <div key={row.l} className="flex items-center gap-6 group">
+                    <span className="text-primary font-mono text-base w-6 tracking-widest">{row.l}</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors duration-500">
+                      {row.w}
+                    </span>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -125,11 +124,65 @@ export default function About() {
         </div>
       </section>
 
-      {/* Core Principles */}
-      <section className="py-40 bg-background border-t border-border relative">
-        <SectionDivider id="03" label="OPERATING PRINCIPLES" />
+      {/* Operational Doctrine — alternating timeline cards */}
+      <section className="py-32 bg-background border-t border-border relative">
+        <div className="container mx-auto px-6 mb-20 flex justify-center">
+          <div className="inline-flex items-center gap-3 border border-primary/40 px-5 py-2 font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            // SECTION 04 · OPERATIONAL DOCTRINE
+          </div>
+        </div>
+
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/50 border border-border/50 p-px mt-20 max-w-7xl mx-auto">
+          <div className="relative max-w-3xl mx-auto">
+            <div className="space-y-12">
+              {doctrine.map((item, i) => (
+                <div key={item.num} className="relative">
+                  <motion.div
+                    initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5 }}
+                    className={`relative ${i % 2 === 0 ? "ml-0 mr-auto" : "ml-auto mr-0"} max-w-xl`}
+                  >
+                    {/* big background number */}
+                    <div
+                      className={`absolute font-serif font-bold text-[8rem] leading-none text-muted/15 select-none pointer-events-none ${
+                        i % 2 === 0 ? "-left-12 -top-6" : "-right-12 -top-6"
+                      }`}
+                      aria-hidden
+                    >
+                      {item.num}
+                    </div>
+                    <div className="relative z-10 bg-card/70 backdrop-blur-sm border border-border/70 p-8 hover:border-primary/40 transition-colors">
+                      <h3 className="text-2xl font-serif font-bold text-foreground mb-3">{item.title}</h3>
+                      <p className="text-muted-foreground font-sans leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+
+                  {i < doctrine.length - 1 && (
+                    <div className="flex justify-center mt-12">
+                      <div className="w-8 h-8 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Principles — keep but restyled */}
+      <section className="py-32 bg-card border-t border-border relative">
+        <div className="container mx-auto px-6 mb-16 flex justify-center">
+          <div className="inline-block border border-primary/40 px-5 py-2 font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
+            // SECTION 03 · OPERATING PRINCIPLES
+          </div>
+        </div>
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/50 border border-border/50 p-px max-w-7xl mx-auto">
             {principles.map((principle, i) => (
               <motion.div
                 key={principle.title}
@@ -137,67 +190,72 @@ export default function About() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card p-12 hover:bg-muted/10 transition-colors group relative overflow-hidden cursor-none"
+                className="bg-background p-10 hover:bg-muted/10 transition-colors group relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="font-mono text-xs text-primary/50 mb-8">0{i+1}</div>
-                <principle.icon className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors duration-500 mb-8" />
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-4">{principle.title}</h3>
-                <p className="text-muted-foreground font-sans leading-relaxed">{principle.desc}</p>
+                <div className="font-mono text-xs text-primary/50 mb-6">0{i + 1}</div>
+                <principle.icon className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors duration-500 mb-6" />
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">{principle.title}</h3>
+                <p className="text-sm text-muted-foreground font-sans leading-relaxed">{principle.desc}</p>
               </motion.div>
             ))}
-            
-            {/* Empty grid cell filler for layout balance if needed */}
-            {principles.length % 3 !== 0 && (
-              <div className="bg-card/50 p-12 hidden lg:flex items-center justify-center">
-                <div className="w-8 h-[1px] bg-border" />
-              </div>
-            )}
           </div>
         </div>
       </section>
 
-      {/* Timeline & Leadership */}
-      <section className="py-40 bg-card border-t border-border relative">
-        <SectionDivider id="04" label="TRAJECTORY & LEADERSHIP" />
-        <div className="container mx-auto px-6 mt-20">
-          <div className="grid lg:grid-cols-2 gap-24">
-            {/* Timeline */}
-            <div>
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-12">Evolution</h2>
-              <div className="space-y-12 relative border-l border-primary/30 pl-8 ml-4">
-                {milestones.map((ms, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="relative"
-                  >
-                    <div className="absolute -left-10 top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary flex items-center justify-center">
-                      <div className="w-1 h-1 bg-primary rounded-full" />
-                    </div>
-                    <div className="font-mono text-primary text-sm tracking-widest mb-2">{ms.year}</div>
-                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">{ms.title}</h3>
-                    <p className="text-muted-foreground font-sans">{ms.desc}</p>
-                  </motion.div>
-                ))}
+      {/* Founder & Headquarters */}
+      <section className="py-32 bg-background border-t border-border relative">
+        <div className="container mx-auto px-6 mb-16 flex justify-center">
+          <div className="inline-block border border-primary/40 px-5 py-2 font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
+            // SECTION 05 · LEADERSHIP
+          </div>
+        </div>
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Founder card */}
+            <div className="relative bg-card border border-border p-10 group hover:border-primary/40 transition-colors overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,rgba(208,24,227,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary mb-8">FOUNDER</div>
+              <div className="flex items-center gap-6 mb-8">
+                <div className="w-20 h-20 rounded-full border-2 border-primary/40 bg-primary/10 flex items-center justify-center font-serif text-3xl font-bold text-primary">
+                  R
+                </div>
+                <div>
+                  <div className="text-3xl font-serif font-bold text-foreground">Ronaldo R</div>
+                  <div className="font-mono text-xs text-muted-foreground tracking-widest mt-1">FOUNDER · AENS</div>
+                </div>
               </div>
+              <p className="text-muted-foreground font-sans leading-relaxed italic">
+                "We don't ship generic AI. AENS exists to engineer the AI capability that becomes an unfair advantage for every enterprise we serve."
+              </p>
             </div>
 
-            {/* Leadership Philosophy */}
-            <div>
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-12">Leadership Doctrine</h2>
-              <div className="bg-background border border-border p-10 relative group">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[radial-gradient(ellipse_at_top_right,rgba(208,24,227,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <HexagonIcon className="w-10 h-10 text-primary/50 mb-8" />
-                <p className="text-lg text-muted-foreground font-sans leading-relaxed mb-8 italic">
-                  "In a world where seeing is no longer believing, verification becomes the highest form of security. We are building the engine that restores objective reality to digital environments."
-                </p>
-                <div className="border-t border-border/50 pt-6">
-                  <div className="font-mono text-sm text-foreground uppercase tracking-widest">AENS Executive Board</div>
-                  <div className="font-sans text-xs text-muted-foreground mt-1">San Francisco, California</div>
+            {/* HQ card */}
+            <div className="relative bg-card border border-border p-10 group hover:border-primary/40 transition-colors overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,rgba(208,24,227,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary mb-8">HEADQUARTERS</div>
+              <div className="space-y-6">
+                <div>
+                  <div className="text-2xl font-serif font-bold text-foreground">Dubai</div>
+                  <div className="font-mono text-[10px] text-muted-foreground tracking-widest mt-1">UAE · STRATEGIC HQ</div>
+                </div>
+                <div className="w-12 h-[1px] bg-border" />
+                <div>
+                  <div className="text-2xl font-serif font-bold text-foreground">Bangalore</div>
+                  <div className="font-mono text-[10px] text-muted-foreground tracking-widest mt-1">INDIA · ENGINEERING HQ</div>
+                </div>
+                <div className="w-12 h-[1px] bg-border" />
+                <div className="flex items-center justify-between pt-2">
+                  <div>
+                    <div className="font-mono text-[10px] text-muted-foreground tracking-widest mb-1">FOUNDED</div>
+                    <div className="text-foreground font-serif text-xl">2026</div>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] text-muted-foreground tracking-widest mb-1">CONTACT</div>
+                    <a href="mailto:admin@aens.io" className="text-foreground font-serif text-xl hover:text-primary transition-colors">
+                      admin@aens.io
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

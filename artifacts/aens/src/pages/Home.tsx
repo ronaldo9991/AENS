@@ -37,7 +37,7 @@ const RobotHero = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full max-w-[640px] aspect-square relative mx-auto mt-12 md:mt-0"
+      className="w-full max-w-[640px] aspect-square relative mx-auto mt-16 md:mt-24 lg:mt-32"
       data-testid="hero-robot"
     >
       {/* radial fuchsia glow behind robot */}

@@ -1,235 +1,260 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { SectionDivider, CrosshairOverlay } from "@/components/ui/SectionElements";
-import { 
-  CrosshairIcon, 
-  ShieldNodeIcon, 
-  NeuralDiagramIcon, 
-  HexagonIcon, 
+import { CrosshairOverlay } from "@/components/ui/SectionElements";
+import {
+  CrosshairIcon,
+  ShieldNodeIcon,
+  NeuralDiagramIcon,
+  HexagonIcon,
   ConcentricArcsIcon,
   OrbitalRingIcon,
-  GridMatrixIcon
+  GridMatrixIcon,
 } from "@/components/icons";
 
 export default function Solutions() {
   const solutions = [
-    { 
-      id: "deepfake-detection",
-      title: "Deepfake Detection", 
-      icon: ConcentricArcsIcon, 
-      desc: "Identify synthetic media with 99.9% accuracy across all digital formats in real-time.",
-      features: ["Pixel anomaly detection", "Audio frequency analysis", "Metadata tracing", "Sub-50ms latency"]
+    {
+      id: "custom-ai",
+      title: "Custom AI Solutions",
+      tag: "FLAGSHIP",
+      icon: HexagonIcon,
+      desc: "Bespoke AI built around your business — from problem framing to model architecture, deployment and continuous tuning. We do not sell shelf products; we engineer the AI capability that wins for your enterprise.",
+      features: [
+        "Strategic AI consulting & roadmap",
+        "Custom model architecture & training",
+        "Private deployment in your cloud or on-prem",
+        "End-to-end ownership: discovery → live ops",
+      ],
     },
-    { 
+    {
       id: "enterprise-ai",
-      title: "Enterprise AI Systems", 
-      icon: GridMatrixIcon, 
-      desc: "Deploy secure, air-gapped AI infrastructure designed for classified and corporate environments.",
-      features: ["Air-gapped deployment", "On-premise execution", "Data sovereignty guarantees", "Custom model fine-tuning"]
+      title: "Enterprise AI Systems",
+      tag: "CORE",
+      icon: GridMatrixIcon,
+      desc: "Production-grade AI infrastructure for regulated B2B environments — secure gateways, private LLMs, RAG pipelines and governance baked into every layer.",
+      features: ["Air-gapped & on-prem deployment", "Private LLM gateway", "RAG over enterprise data", "Policy & audit guardrails"],
     },
-    { 
+    {
       id: "ai-agents",
-      title: "AI Agents", 
-      icon: OrbitalRingIcon, 
-      desc: "Autonomous intelligence units that continuously monitor, analyze, and neutralize synthetic threats.",
-      features: ["24/7 background monitoring", "Desktop and mobile clients", "Automated quarantine", "Behavioral analytics"]
+      title: "Autonomous AI Agents",
+      tag: "CORE",
+      icon: OrbitalRingIcon,
+      desc: "Agents that plan, decide and execute across your tools 24/7. Multi-step reasoning, native tool use and human-in-the-loop approvals built in.",
+      features: ["Multi-step reasoning", "Tool use across your stack", "Human-in-the-loop gates", "Replayable audit trails"],
     },
-    { 
+    {
+      id: "deepfake-detection",
+      title: "Deepfake Detection",
+      tag: "MODULE",
+      icon: ConcentricArcsIcon,
+      desc: "Identify synthetic media with 99.9% accuracy. Pixel anomaly detection, audio frequency analysis and metadata tracing under sub-50ms latency.",
+      features: ["Pixel anomaly detection", "Audio frequency analysis", "Metadata & provenance tracing", "Real-time stream support"],
+    },
+    {
+      id: "av-intel",
+      title: "Audio & Video Intelligence",
+      tag: "MODULE",
+      icon: NeuralDiagramIcon,
+      desc: "Forensic-grade understanding of video and audio — speakers, scenes, sentiment, manipulation traces and content lineage.",
+      features: ["Speaker & scene analysis", "Sentiment & intent extraction", "Generator model fingerprinting", "Content lineage reporting"],
+    },
+    {
       id: "trust-infra",
-      title: "Trust Infrastructure", 
-      icon: ShieldNodeIcon, 
-      desc: "The foundational layer for verifying digital authenticity at global enterprise scale.",
-      features: ["Cryptographic watermarking", "Provenance tracking", "Blockchain verification", "API-first integration"]
+      title: "Trust & Governance",
+      tag: "PLATFORM",
+      icon: ShieldNodeIcon,
+      desc: "The foundational layer for verifying digital authenticity at enterprise scale — cryptographic watermarking, provenance and zero-trust integration.",
+      features: ["Cryptographic watermarking", "Provenance tracking", "Zero-trust integration", "API-first compliance"],
     },
-    { 
-      id: "synthetic-intel",
-      title: "Synthetic Media Intelligence", 
-      icon: NeuralDiagramIcon, 
-      desc: "Advanced forensic analysis of manipulated content to trace origin and generation methods.",
-      features: ["Generator model identification", "Prompt reconstruction", "Threat actor profiling", "Forensic reporting"]
-    },
-    { 
-      id: "security-auto",
-      title: "Security Automation", 
-      icon: HexagonIcon, 
-      desc: "Automated threat response protocols integrated directly into your existing security stack.",
-      features: ["SIEM/SOAR integration", "Automated incident response", "Zero-trust policy enforcement", "Custom alert thresholds"]
-    }
   ];
 
   return (
-    <motion.main 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="w-full flex flex-col bg-background"
     >
       {/* Hero */}
-      <section className="pt-40 pb-32 border-b border-border bg-card relative overflow-hidden">
+      <section className="pt-40 pb-28 border-b border-border bg-card relative overflow-hidden">
         <CrosshairOverlay />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(208,24,227,0.1)_0%,transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(208,24,227,0.12)_0%,transparent_55%)] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <motion.div 
+          <div className="max-w-5xl">
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-4 mb-8"
             >
-              <div className="w-8 h-[1px] bg-primary" />
-              <span className="text-primary uppercase tracking-[0.2em] font-mono text-[10px] font-medium">
-                CAPABILITIES
+              <div className="w-10 h-[1px] bg-primary" />
+              <span className="text-primary uppercase tracking-[0.25em] font-mono text-[10px] font-medium">
+                // SOLUTIONS / CUSTOM AI / ENTERPRISE
               </span>
             </motion.div>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-[6rem] font-serif font-bold text-foreground mb-8 leading-[1.05]"
+              className="text-5xl md:text-7xl lg:text-[6.5rem] font-serif font-bold text-foreground mb-8 leading-[1.02]"
             >
-              Enterprise <br/>
-              Intelligence Systems.
+              Custom AI <br />
+              <span className="italic font-normal text-muted-foreground">for serious enterprises.</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-muted-foreground max-w-2xl font-sans"
+              className="text-xl text-muted-foreground max-w-2xl font-sans leading-relaxed"
             >
-              A comprehensive suite of synthetic media intelligence tools designed for the world's most demanding threat environments.
+              We don't sell off-the-shelf AI. AENS engineers tailored AI systems and autonomous agents for your operations — with deepfake, audio and video intelligence available as ready modules inside the same trust fabric.
             </motion.p>
           </div>
         </div>
       </section>
 
-      {/* Solutions Detailed Grid */}
-      <section className="py-32 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="space-y-40">
-            {solutions.map((sol, index) => (
-              <motion.div 
-                key={sol.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 lg:gap-24 items-center`}
-              >
-                <div className="w-full lg:w-5/12">
-                  <div className="aspect-[4/5] bg-card border border-border flex flex-col items-center justify-center relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent,rgba(208,24,227,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-                    
-                    <div className="font-mono text-[10px] tracking-widest text-primary/50 absolute top-8 left-8 uppercase">
-                      SYSTEM.0{index + 1}
-                    </div>
-                    
-                    <sol.icon className="w-32 h-32 text-muted-foreground/30 group-hover:text-primary transition-colors duration-700" />
-                    
-                    <div className="absolute bottom-8 right-8 font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-primary/50 rounded-full group-hover:animate-pulse" />
-                      SYS.{sol.id.replace('-', '_').toUpperCase()}
-                    </div>
-                  </div>
-                </div>
+      {/* Operational Doctrine — alternating timeline */}
+      <section className="py-32 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-6 mb-20 flex justify-center">
+          <div className="border border-primary/40 px-6 py-2 font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
+            // SECTION 01 · CAPABILITY MATRIX
+          </div>
+        </div>
 
-                <div className="w-full lg:w-7/12 space-y-8">
-                  <div className="font-mono text-xs text-primary mb-4 flex items-center gap-4">
-                    <span>/ 0{index + 1}</span>
-                    <div className="h-[1px] w-12 bg-primary/30" />
-                  </div>
-                  
-                  <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">{sol.title}</h2>
-                  
-                  <p className="text-xl text-muted-foreground font-sans leading-relaxed py-4 border-b border-border/50">
-                    {sol.desc}
-                  </p>
-                  
-                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 pt-4">
-                    {sol.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-4 group cursor-default">
-                        <CrosshairIcon className="w-4 h-4 text-primary/30 group-hover:text-primary transition-colors shrink-0" />
-                        <span className="text-foreground font-sans text-sm">{feature}</span>
+        <div className="container mx-auto px-6">
+          <div className="relative max-w-5xl mx-auto">
+            {/* central spine */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
+
+            <div className="space-y-12 md:space-y-24">
+              {solutions.map((sol, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <motion.div
+                    key={sol.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.6 }}
+                    className="relative md:grid md:grid-cols-2 md:gap-16 items-center"
+                  >
+                    {/* central node */}
+                    <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center top-12 z-10">
+                      <div className="w-4 h-4 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                       </div>
-                    ))}
-                  </div>
-                  
-                  <div className="pt-10">
-                    <Link href="/contact">
-                      <Button data-testid={`btn-request-${sol.id}`} variant="outline" className="rounded-none border-border hover:bg-primary hover:text-primary-foreground hover:border-primary font-mono text-xs tracking-widest uppercase h-12 px-8 transition-all duration-300">
-                        Request Deployment
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                    </div>
+
+                    {/* card placement */}
+                    <div className={`${isLeft ? "md:col-start-1" : "md:col-start-2"} relative`}>
+                      <div className="relative group">
+                        {/* Big background number */}
+                        <div
+                          className={`absolute -top-8 ${isLeft ? "-left-2" : "-right-2"} font-serif font-bold text-[10rem] leading-none text-muted/10 select-none pointer-events-none z-0`}
+                          aria-hidden
+                        >
+                          0{index + 1}
+                        </div>
+
+                        <div className="relative z-10 border border-border/70 bg-card/70 backdrop-blur-sm p-10 hover:border-primary/50 transition-colors duration-500">
+                          <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center gap-3">
+                              <sol.icon className="w-6 h-6 text-primary" />
+                              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-primary">
+                                {sol.tag}
+                              </span>
+                            </div>
+                            <span className="font-mono text-[10px] text-muted-foreground tracking-widest">
+                              SYS.0{index + 1}
+                            </span>
+                          </div>
+
+                          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">
+                            {sol.title}
+                          </h2>
+
+                          <p className="text-base text-muted-foreground font-sans leading-relaxed mb-6 border-l-2 border-primary/30 pl-4">
+                            {sol.desc}
+                          </p>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-6">
+                            {sol.features.map((feature, i) => (
+                              <div key={i} className="flex items-start gap-2.5 text-sm">
+                                <CrosshairIcon className="w-3 h-3 text-primary/60 shrink-0 mt-1" />
+                                <span className="text-foreground/90 font-sans">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <Link href="/contact">
+                            <Button
+                              data-testid={`btn-request-${sol.id}`}
+                              variant="outline"
+                              className="rounded-none border-border hover:bg-primary hover:text-primary-foreground hover:border-primary font-mono text-[10px] tracking-[0.2em] uppercase h-10 px-6 transition-all duration-300"
+                            >
+                              Request Brief →
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Capability Matrix Table */}
+      {/* Engagement Process */}
       <section className="py-32 bg-card relative border-t border-border">
-        <SectionDivider id="02" label="INTEGRATION ECOSYSTEM" />
-        <div className="container mx-auto px-6 mt-20">
+        <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-serif font-bold text-foreground mb-12 text-center">System Compatibilities</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="border-b border-primary/30">
-                    <th className="text-left font-mono text-[10px] text-muted-foreground uppercase tracking-widest p-4">Environment</th>
-                    <th className="text-center font-mono text-[10px] text-primary uppercase tracking-widest p-4">API Ready</th>
-                    <th className="text-center font-mono text-[10px] text-primary uppercase tracking-widest p-4">Air-Gapped</th>
-                    <th className="text-center font-mono text-[10px] text-primary uppercase tracking-widest p-4">Real-Time</th>
-                  </tr>
-                </thead>
-                <tbody className="font-sans text-sm">
-                  <tr className="border-b border-border/50 hover:bg-muted/10 transition-colors group cursor-none">
-                    <td className="p-4 text-foreground font-medium flex items-center gap-3">
-                      <GridMatrixIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary" /> SIEM / SOAR Platforms
-                    </td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                  </tr>
-                  <tr className="border-b border-border/50 hover:bg-muted/10 transition-colors group cursor-none">
-                    <td className="p-4 text-foreground font-medium flex items-center gap-3">
-                      <OrbitalRingIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary" /> Browser Extensions
-                    </td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">No</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                  </tr>
-                  <tr className="border-b border-border/50 hover:bg-muted/10 transition-colors group cursor-none">
-                    <td className="p-4 text-foreground font-medium flex items-center gap-3">
-                      <ShieldNodeIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary" /> Core Infrastructure (On-Prem)
-                    </td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Batch</td>
-                  </tr>
-                  <tr className="border-b border-border/50 hover:bg-muted/10 transition-colors group cursor-none">
-                    <td className="p-4 text-foreground font-medium flex items-center gap-3">
-                      <ConcentricArcsIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary" /> Mobile MDM Agents
-                    </td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">API Only</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">No</td>
-                    <td className="p-4 text-center text-muted-foreground group-hover:text-primary">Yes</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="text-center mb-16">
+              <div className="inline-block border border-primary/40 px-6 py-2 font-mono text-[10px] tracking-[0.25em] uppercase text-primary mb-8">
+                // SECTION 02 · ENGAGEMENT PROCESS
+              </div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
+                How we build with you.
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-px bg-border/40 border border-border/40">
+              {[
+                { num: "01", title: "Discovery", desc: "We map your operations, data and constraints. No assumptions." },
+                { num: "02", title: "Architecture", desc: "We propose the model, agent and infra architecture for your case." },
+                { num: "03", title: "Build & Train", desc: "We build, fine-tune and validate against your real workloads." },
+                { num: "04", title: "Deploy & Operate", desc: "We ship, integrate and run with SLAs and governance in place." },
+              ].map((step) => (
+                <div key={step.num} className="bg-background p-8 hover:bg-muted/10 transition-colors group">
+                  <div className="font-mono text-xs text-primary mb-6 tracking-[0.2em]">{step.num}</div>
+                  <h3 className="text-lg font-serif font-bold text-foreground mb-3">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground font-sans leading-relaxed">{step.desc}</p>
+                  <div className="w-0 h-[1px] bg-primary mt-6 group-hover:w-full transition-all duration-700" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-40 bg-background border-t border-border text-center relative overflow-hidden">
+      <section className="py-32 bg-background border-t border-border text-center relative overflow-hidden">
         <CrosshairOverlay />
-        <div className="container mx-auto px-6 relative z-10">
-          <h2 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-12">Architect Your Defense.</h2>
+        <div className="container mx-auto px-6 relative z-10 max-w-3xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
+            Tell us the problem. <br />
+            <span className="italic text-muted-foreground">We'll build the AI.</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Every engagement starts with a confidential briefing. No templates, no demos — just your problem and our architecture.
+          </p>
           <Link href="/contact">
-            <Button data-testid="btn-strategy-call" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.4)] transition-all cursor-none">
+            <Button
+              data-testid="btn-strategy-call"
+              size="lg"
+              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-10 h-14 text-xs font-mono uppercase tracking-[0.25em] border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.5)] transition-all"
+            >
               Book Strategy Call
             </Button>
           </Link>

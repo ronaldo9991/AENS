@@ -9,9 +9,9 @@ export default function Contact() {
   const [isFocused, setIsFocused] = useState<string | null>(null);
 
   const contactMethods = [
-    { icon: HexagonIcon, label: "Encrypted Comms", value: "secure@aens.com" },
-    { icon: GridMatrixIcon, label: "Headquarters", value: "San Francisco, CA" },
-    { icon: OrbitalRingIcon, label: "Strategic Line", value: "+1 (800) 555-0199" }
+    { icon: HexagonIcon, label: "Direct Email", value: "admin@aens.io" },
+    { icon: GridMatrixIcon, label: "Strategic HQ", value: "Dubai, UAE" },
+    { icon: OrbitalRingIcon, label: "Engineering HQ", value: "Bangalore, India" },
   ];
 
   return (
@@ -63,7 +63,7 @@ export default function Contact() {
               <div>
                 <h2 className="text-3xl font-serif font-bold text-foreground mb-6">Enterprise Integration</h2>
                 <p className="text-lg text-muted-foreground font-sans leading-relaxed">
-                  AENS infrastructure is not self-serve. We work directly with enterprise security teams, intelligence agencies, and executive boards to architect bespoke synthetic threat defenses.
+                  AENS infrastructure is not self-serve. We work directly with enterprise leadership, security teams and executive boards to architect bespoke AI systems, autonomous agents and trust modules.
                 </p>
                 <div className="w-12 h-[1px] bg-border my-8" />
                 <p className="text-lg text-muted-foreground font-sans leading-relaxed">
@@ -142,9 +142,10 @@ export default function Contact() {
                       onFocus={() => setIsFocused('type')}
                       onBlur={() => setIsFocused(null)}
                     >
-                      <option value="deepfake" className="bg-card">Deepfake Detection</option>
-                      <option value="enterprise" className="bg-card">Enterprise AI</option>
-                      <option value="consulting" className="bg-card">Consulting</option>
+                      <option value="custom-ai" className="bg-card">Custom AI Solutions</option>
+                      <option value="enterprise" className="bg-card">Enterprise AI Systems</option>
+                      <option value="agents" className="bg-card">Autonomous AI Agents</option>
+                      <option value="deepfake" className="bg-card">Deepfake / Audio / Video Intel</option>
                       <option value="partnerships" className="bg-card">Partnerships</option>
                       <option value="general" className="bg-card">General Inquiry</option>
                     </select>

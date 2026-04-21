@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { Button } from '@/components/ui/button';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,9 +12,7 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,65 +25,79 @@ export default function Navbar() {
   ];
 
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'glass py-4 shadow-md' 
-          : 'bg-transparent py-6'
+        isScrolled ? 'glass py-3 border-b border-border/50' : 'bg-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link href="/">
-          <span className="font-serif text-2xl font-bold tracking-wider cursor-pointer flex items-center gap-2" data-testid="logo-aens">
-            AENS
-          </span>
-        </Link>
+      <div className="container mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-3 items-center">
+          {/* Left: Logo */}
+          <div className="flex justify-start">
+            <Logo size="md" />
+          </div>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          <nav className="flex gap-6">
-            {navLinks.map((link) => (
-              <Link key={link.path} href={link.path}>
-                <span className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
-                  location === link.path ? 'text-primary' : 'text-muted-foreground'
-                }`}>
-                  {link.name}
-                </span>
-              </Link>
-            ))}
+          {/* Center: Nav (desktop) */}
+          <nav
+            className="hidden md:flex justify-center items-center gap-1 px-2 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur-md w-fit mx-auto"
+            data-testid="nav-center"
+          >
+            {navLinks.map((link) => {
+              const active = location === link.path;
+              return (
+                <Link key={link.path} href={link.path}>
+                  <span
+                    data-testid={`nav-${link.name.toLowerCase()}`}
+                    className={`relative px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-[0.18em] cursor-pointer transition-all ${
+                      active
+                        ? 'text-primary-foreground bg-primary shadow-[0_0_20px_rgba(208,24,227,0.45)]'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                </Link>
+              );
+            })}
           </nav>
-          
-          <div className="flex items-center gap-4 border-l border-border pl-6">
-            <button 
+
+          {/* Right: Theme toggle + CTA */}
+          <div className="hidden md:flex justify-end items-center gap-3">
+            <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
               aria-label="Toggle theme"
+              data-testid="btn-theme-toggle"
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
             </button>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all">
-              Book Consultation
+            <Button
+              data-testid="btn-book-consult"
+              className="rounded-full h-9 px-5 text-[10px] font-mono tracking-[0.2em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(208,24,227,0.35)] hover:shadow-[0_0_28px_rgba(208,24,227,0.55)] transition-all"
+            >
+              Book Consult
             </Button>
           </div>
-        </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden text-foreground justify-self-end"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 w-full glass border-b border-border shadow-lg py-4 px-6 flex flex-col gap-4 md:hidden">
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link key={link.path} href={link.path}>
-                <span 
-                  className={`text-lg font-medium block py-2 border-b border-border/50 ${
+                <span
+                  className={`text-base font-mono uppercase tracking-widest block py-2 border-b border-border/40 ${
                     location === link.path ? 'text-primary' : 'text-foreground'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
@@ -94,16 +107,18 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center justify-between mt-4">
-            <button 
+          <div className="flex items-center justify-between mt-2">
+            <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="flex items-center gap-2 text-muted-foreground"
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              <span className="text-xs font-mono uppercase tracking-widest">
+                {theme === 'dark' ? 'Light' : 'Dark'}
+              </span>
             </button>
-            <Button className="bg-primary text-primary-foreground">
-              Consultation
+            <Button className="rounded-full bg-primary text-primary-foreground text-[10px] font-mono tracking-widest uppercase">
+              Consult
             </Button>
           </div>
         </div>
