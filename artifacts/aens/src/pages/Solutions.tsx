@@ -68,7 +68,7 @@ export default function Solutions() {
       {/* Hero */}
       <section className="pt-40 pb-32 border-b border-border bg-card relative overflow-hidden">
         <CrosshairOverlay />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,91,110,0.1)_0%,transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(208,24,227,0.1)_0%,transparent_50%)] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
             <motion.div 
@@ -116,7 +116,7 @@ export default function Solutions() {
               >
                 <div className="w-full lg:w-5/12">
                   <div className="aspect-[4/5] bg-card border border-border flex flex-col items-center justify-center relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent,rgba(255,91,110,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent,rgba(208,24,227,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                     
                     <div className="font-mono text-[10px] tracking-widest text-primary/50 absolute top-8 left-8 uppercase">
@@ -229,7 +229,7 @@ export default function Solutions() {
         <div className="container mx-auto px-6 relative z-10">
           <h2 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-12">Architect Your Defense.</h2>
           <Link href="/contact">
-            <Button data-testid="btn-strategy-call" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(255,91,110,0.4)] transition-all cursor-none">
+            <Button data-testid="btn-strategy-call" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.4)] transition-all cursor-none">
               Book Strategy Call
             </Button>
           </Link>

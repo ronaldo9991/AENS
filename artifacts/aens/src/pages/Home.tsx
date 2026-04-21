@@ -14,7 +14,7 @@ import {
 } from "@/components/icons";
 import { useRef, useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
-import robotHero from "@/assets/robot-hero.png";
+import robotHero from "@/assets/robot-mascot.png";
 
 const RobotHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,8 +40,8 @@ const RobotHero = () => {
       className="w-full max-w-[640px] aspect-square relative mx-auto mt-12 md:mt-0"
       data-testid="hero-robot"
     >
-      {/* radial coral glow behind robot */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,91,110,0.35)_0%,rgba(232,52,74,0.12)_35%,transparent_70%)] blur-2xl" />
+      {/* radial fuchsia glow behind robot */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(208,24,227,0.35)_0%,rgba(249,115,22,0.12)_35%,transparent_70%)] blur-2xl" />
 
       {/* concentric pulsing rings */}
       {[0, 1, 2].map((i) => (
@@ -65,8 +65,8 @@ const RobotHero = () => {
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       >
-        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(255,91,110,1)]" />
-        <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(255,91,110,1)]" />
+        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(228,65,243,1)]" />
+        <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(228,65,243,1)]" />
         <div className="absolute -bottom-1 left-1/3 w-1.5 h-1.5 rounded-full bg-primary/70" />
       </motion.div>
 
@@ -87,10 +87,13 @@ const RobotHero = () => {
       >
         <motion.img
           src={robotHero}
-          alt="AENS Sentinel — autonomous trust intelligence agent"
-          className="relative z-10 w-[88%] h-[88%] object-contain drop-shadow-[0_30px_60px_rgba(255,91,110,0.35)]"
-          animate={{ y: [0, -14, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          alt="AENS — enterprise AI agent mascot"
+          className="relative z-10 w-[92%] h-[92%] object-contain drop-shadow-[0_30px_70px_rgba(208,24,227,0.45)]"
+          animate={{ y: [0, -18, 0], rotate: [-1.5, 1.5, -1.5] }}
+          transition={{
+            y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
+            rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+          }}
           data-testid="img-robot-hero"
         />
       </motion.div>
@@ -122,49 +125,49 @@ const RobotHero = () => {
         </div>
       ))}
 
-      {/* floating HUD card — TRUST SCORE */}
+      {/* floating HUD card — AGENTS DEPLOYED */}
       <motion.div
-        className="absolute top-[8%] -left-4 md:-left-12 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(255,91,110,0.15)]"
+        className="absolute top-[8%] -left-4 md:-left-12 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(208,24,227,0.15)]"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
         transition={{ opacity: { delay: 1, duration: 0.8 }, x: { delay: 1, duration: 0.8 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
-        data-testid="hud-trust-score"
+        data-testid="hud-agents"
       >
-        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Trust Score</div>
+        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Agents Live</div>
         <div className="text-2xl font-mono font-semibold text-foreground tabular-nums">
-          98<span className="text-primary">.7</span>%
+          1,2<span className="text-primary">47</span>
         </div>
         <div className="text-[10px] font-mono text-primary/80 mt-1 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> NOMINAL
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AUTONOMOUS
         </div>
       </motion.div>
 
-      {/* floating HUD card — DEEPFAKE PROBABILITY */}
+      {/* floating HUD card — ENTERPRISES */}
       <motion.div
-        className="absolute top-[42%] -right-4 md:-right-16 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(255,91,110,0.15)]"
+        className="absolute top-[42%] -right-4 md:-right-16 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(208,24,227,0.15)]"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
         transition={{ opacity: { delay: 1.4, duration: 0.8 }, x: { delay: 1.4, duration: 0.8 }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-        data-testid="hud-deepfake"
+        data-testid="hud-uptime"
       >
-        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Deepfake P</div>
+        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">SLA Uptime</div>
         <div className="text-2xl font-mono font-semibold text-foreground tabular-nums">
-          0<span className="text-primary">.02</span>
+          99<span className="text-primary">.99</span>%
         </div>
-        <div className="text-[10px] font-mono text-muted-foreground mt-1">SCAN: ACTIVE</div>
+        <div className="text-[10px] font-mono text-muted-foreground mt-1">B2B GRADE</div>
       </motion.div>
 
-      {/* floating HUD card — NEURAL NODES */}
+      {/* floating HUD card — TASKS / SEC */}
       <motion.div
-        className="absolute bottom-[10%] -left-2 md:-left-20 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(255,91,110,0.15)]"
+        className="absolute bottom-[10%] -left-2 md:-left-20 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(208,24,227,0.15)]"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: [0, -5, 0] }}
         transition={{ opacity: { delay: 1.8, duration: 0.8 }, y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 } }}
         data-testid="hud-nodes"
       >
-        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Neural Nodes</div>
+        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Tasks / sec</div>
         <div className="text-xl font-mono font-semibold text-foreground tabular-nums">
-          4,892,<span className="text-primary">103</span>
+          48,<span className="text-primary">921</span>
         </div>
         <div className="flex gap-0.5 mt-1.5">
           {[...Array(12)].map((_, i) => (
@@ -182,7 +185,7 @@ const RobotHero = () => {
       {[0, 72, 144, 216, 288].map((deg, i) => (
         <motion.div
           key={i}
-          className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(255,91,110,0.9)]"
+          className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(228,65,243,0.9)]"
           style={{ transformOrigin: "0 0" }}
           animate={{ rotate: [deg, deg + 360] }}
           transition={{ duration: 30 + i * 4, repeat: Infinity, ease: "linear" }}
@@ -250,12 +253,12 @@ export default function Home() {
   ];
 
   const solutions = [
-    { num: "01", title: "Deepfake Detection", desc: "Identify synthetic media with 99.9% accuracy.", icon: ConcentricArcsIcon },
-    { num: "02", title: "Enterprise AI Systems", desc: "Secure, air-gapped AI infrastructure.", icon: GridMatrixIcon },
-    { num: "03", title: "AI Agents", desc: "Autonomous units monitoring 24/7.", icon: OrbitalRingIcon },
-    { num: "04", title: "Trust Infrastructure", desc: "Foundational layer for digital authenticity.", icon: ShieldNodeIcon },
-    { num: "05", title: "Synthetic Media Intel", desc: "Forensic analysis to trace generation methods.", icon: NeuralDiagramIcon },
-    { num: "06", title: "Security Automation", desc: "Automated threat response protocols.", icon: HexagonIcon }
+    { num: "01", title: "Enterprise AI Systems", desc: "Secure, air-gapped AI infrastructure tailored to your stack.", icon: GridMatrixIcon },
+    { num: "02", title: "Autonomous AI Agents", desc: "24/7 agents that plan, execute and report across your business.", icon: OrbitalRingIcon },
+    { num: "03", title: "Workflow Automation", desc: "Replace repetitive ops with multi-step agentic pipelines.", icon: HexagonIcon },
+    { num: "04", title: "Knowledge & RAG", desc: "Private LLM gateways grounded in your enterprise data.", icon: NeuralDiagramIcon },
+    { num: "05", title: "Trust & Governance", desc: "Audit trails, policy guardrails and zero-trust integration.", icon: ShieldNodeIcon },
+    { num: "06", title: "Deepfake Detection", desc: "One of our specialised modules — synthetic media analysis at 99.9% accuracy.", icon: ConcentricArcsIcon },
   ];
 
   const whyAens = [
@@ -290,7 +293,7 @@ export default function Home() {
               >
                 <div className="w-12 h-[1px] bg-primary" />
                 <span className="text-primary uppercase tracking-[0.2em] font-mono text-[10px] font-medium">
-                  ARTIFICIAL INTELLIGENCE / TRUST INFRASTRUCTURE / v.04
+                  ENTERPRISE AI / AGENTIC SYSTEMS / B2B
                 </span>
               </motion.div>
               
@@ -300,9 +303,9 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] tracking-tight uppercase"
               >
-                <span className="font-sans block mb-2">Intelligence</span>
-                <span className="font-serif italic font-normal text-muted-foreground block mb-2 lowercase text-4xl md:text-6xl">built for</span>
-                <span className="font-sans block text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80">Trust.</span>
+                <span className="font-sans block mb-2">AI Systems</span>
+                <span className="font-serif italic font-normal text-muted-foreground block mb-2 lowercase text-4xl md:text-6xl">that run your</span>
+                <span className="font-sans block text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">Enterprise.</span>
               </motion.h1>
 
               <motion.p
@@ -311,7 +314,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-xl md:text-2xl text-muted-foreground max-w-xl font-sans leading-relaxed border-l border-primary/30 pl-6 py-2"
               >
-                We build elite intelligence systems that detect synthetic threats, analyze trust risks, and power enterprise infrastructure in real-time.
+                AENS designs and deploys autonomous AI agents and intelligent systems for B2B operations — from workflow automation to deepfake defence, all governed by enterprise-grade trust infrastructure.
               </motion.p>
 
               <motion.div
@@ -321,7 +324,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row items-center gap-6 pt-8"
               >
                 <Link href="/solutions">
-                  <Button data-testid="btn-deploy-hero" size="lg" className="w-full sm:w-auto h-14 px-8 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_30px_rgba(255,91,110,0.5)] transition-all duration-300 relative group overflow-hidden">
+                  <Button data-testid="btn-deploy-hero" size="lg" className="w-full sm:w-auto h-14 px-8 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.5)] transition-all duration-300 relative group overflow-hidden">
                     <span className="relative z-10">Deploy AENS</span>
                     <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out z-0" />
                   </Button>
@@ -345,31 +348,11 @@ export default function Home() {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                  className="absolute top-1/4 -left-12 bg-card/80 backdrop-blur-md border border-primary/30 p-4 flex flex-col gap-1 shadow-2xl z-30 pointer-events-none"
-                >
-                  <span className="text-[9px] font-mono text-muted-foreground tracking-widest uppercase">Trust Score</span>
-                  <span className="text-primary font-mono text-xl font-bold">98.7%</span>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2, duration: 0.5 }}
-                  className="absolute bottom-1/3 -right-8 bg-card/80 backdrop-blur-md border border-primary/30 p-4 flex flex-col gap-1 shadow-2xl z-30 pointer-events-none"
-                >
-                  <span className="text-[9px] font-mono text-muted-foreground tracking-widest uppercase">Deepfake Prob</span>
-                  <span className="text-primary font-mono text-xl font-bold">0.02%</span>
-                </motion.div>
-                
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.4, duration: 0.5 }}
-                  className="absolute top-1/2 left-10 bg-primary text-primary-foreground px-3 py-2 flex items-center gap-3 z-30 pointer-events-none shadow-[0_0_20px_rgba(255,91,110,0.4)]"
+                  className="absolute top-1/2 left-10 bg-primary text-primary-foreground px-3 py-2 flex items-center gap-3 z-30 pointer-events-none shadow-[0_0_20px_rgba(208,24,227,0.4)]"
                 >
                   <div className="w-2 h-2 bg-background rounded-full animate-pulse" />
-                  <span className="text-[10px] font-mono tracking-widest uppercase font-bold">Scan Active</span>
+                  <span className="text-[10px] font-mono tracking-widest uppercase font-bold">Online</span>
                 </motion.div>
               </motion.div>
             </div>
@@ -380,17 +363,17 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-10 border-t border-border bg-background/80 backdrop-blur-md flex items-center px-6 overflow-hidden">
           <div className="w-2 h-2 rounded-full bg-primary animate-pulse mr-4 shrink-0" />
           <div className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground flex w-max animate-[scroll_30s_linear_infinite]">
-            <span className="mr-8">LIVE — 4 media types actively monitored</span>
+            <span className="mr-8">LIVE — 1,247 enterprise agents online</span>
             <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">24/7 global detection grid online</span>
+            <span className="mr-8">48,921 tasks orchestrated per second</span>
             <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">4,892,103 neural nodes processed today</span>
+            <span className="mr-8">99.99% SLA across all B2B deployments</span>
             <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">LIVE — 4 media types actively monitored</span>
+            <span className="mr-8">LIVE — 1,247 enterprise agents online</span>
             <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">24/7 global detection grid online</span>
+            <span className="mr-8">48,921 tasks orchestrated per second</span>
             <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">4,892,103 neural nodes processed today</span>
+            <span className="mr-8">99.99% SLA across all B2B deployments</span>
           </div>
         </div>
       </section>
@@ -434,20 +417,20 @@ export default function Home() {
               className="space-y-8"
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-[1.1]">
-                Deepfake Detection & <br/>
-                Synthetic Intelligence
+                Autonomous Agents for <br/>
+                Modern Enterprises
               </h2>
               
               <p className="text-xl text-muted-foreground font-sans leading-relaxed border-l-2 border-primary pl-6">
-                Our proprietary neural architecture analyzes pixel matrices, audio frequencies, and file metadata simultaneously. In milliseconds, it determines whether media is organic or synthetic.
+                AENS agents plan, decide and execute across your tools — CRMs, data warehouses, ticketing, finance and beyond. They orchestrate end-to-end workflows that previously required entire teams.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-8 pt-8">
                 {[
-                  { title: "Real-time Processing", desc: "Sub-50ms latency for live streaming video analysis.", num: "01" },
-                  { title: "Multi-modal Nets", desc: "Simultaneous cross-referencing of image and audio vectors.", num: "02" },
-                  { title: "Zero-day Threats", desc: "Identifies previously unseen generative models instantly.", num: "03" },
-                  { title: "Forensic Tracing", desc: "Traces manipulated content back to generation methods.", num: "04" }
+                  { title: "Multi-step Reasoning", desc: "Agents break goals into actions and adapt mid-flight.", num: "01" },
+                  { title: "Tool Use & APIs", desc: "Native connectors to your stack — Slack, Salesforce, SAP, custom.", num: "02" },
+                  { title: "Human-in-the-loop", desc: "Approval gates and escalation paths built into every workflow.", num: "03" },
+                  { title: "Audit & Governance", desc: "Every decision logged, replayable and policy-bound.", num: "04" }
                 ].map((feature, i) => (
                   <div key={i} className="relative pl-8 group">
                     <div className="absolute left-0 top-1 text-[10px] font-mono text-primary/50 group-hover:text-primary transition-colors">{feature.num}</div>
@@ -465,7 +448,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative w-full aspect-square bg-card border border-border shadow-2xl p-1 flex flex-col"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,91,110,0.05)_0%,transparent_100%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(208,24,227,0.05)_0%,transparent_100%)] pointer-events-none" />
               
               <div className="h-10 flex items-center justify-between px-4 border-b border-border/50 bg-background/50">
                 <div className="flex space-x-2">
@@ -488,7 +471,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex-1 border border-border/50 bg-background/50 relative overflow-hidden flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(255,91,110,0.1),transparent)] h-[200%] var(--animate-scan)" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(208,24,227,0.1),transparent)] h-[200%] var(--animate-scan)" />
                   <GridMatrixIcon className="w-32 h-32 text-border absolute opacity-50" />
                   
                   <div className="relative z-10 w-48 h-48 border border-primary/30 flex items-center justify-center bg-card/80 backdrop-blur-sm group">
@@ -578,7 +561,7 @@ export default function Home() {
 
       {/* 6. DEVICE EXPERIENCE */}
       <section className="py-32 bg-card relative border-y border-border overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent,rgba(255,91,110,0.03),transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent,rgba(208,24,227,0.03),transparent)]" />
         <SectionDivider id="05" label="OMNIPRESENT DEPLOYMENT" />
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
@@ -605,9 +588,9 @@ export default function Home() {
                 {/* Screen Content */}
                 <rect x="20" y="50" width="240" height="500" rx="24" fill="hsl(var(--background))" />
                 <g className="animate-pulse">
-                  <circle cx="140" cy="200" r="40" stroke="rgba(255,91,110,0.5)" strokeWidth="2" fill="none" />
-                  <circle cx="140" cy="200" r="30" stroke="rgba(255,91,110,0.8)" strokeWidth="1" fill="none" />
-                  <circle cx="140" cy="200" r="5" fill="rgba(255,91,110,1)" />
+                  <circle cx="140" cy="200" r="40" stroke="rgba(208,24,227,0.5)" strokeWidth="2" fill="none" />
+                  <circle cx="140" cy="200" r="30" stroke="rgba(208,24,227,0.8)" strokeWidth="1" fill="none" />
+                  <circle cx="140" cy="200" r="5" fill="rgba(208,24,227,1)" />
                 </g>
                 <rect x="40" y="300" width="200" height="40" rx="4" fill="hsl(var(--muted))" opacity="0.5" />
                 <rect x="40" y="360" width="160" height="15" rx="2" fill="hsl(var(--muted))" opacity="0.3" />
@@ -617,7 +600,7 @@ export default function Home() {
                 <defs>
                   <linearGradient id="scanGradient" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="rgba(255,91,110,0.2)" />
+                    <stop offset="50%" stopColor="rgba(208,24,227,0.2)" />
                     <stop offset="100%" stopColor="transparent" />
                   </linearGradient>
                 </defs>
@@ -643,8 +626,8 @@ export default function Home() {
                 <circle cx="80" cy="40" r="5" fill="hsl(var(--border))" />
                 
                 <rect x="50" y="100" width="200" height="200" rx="4" fill="hsl(var(--muted))" opacity="0.1" stroke="hsl(var(--border))" strokeWidth="1" />
-                <circle cx="150" cy="200" r="40" stroke="rgba(255,91,110,0.5)" strokeWidth="1" strokeDasharray="4 4" fill="none" />
-                <rect x="145" y="195" width="10" height="10" fill="rgba(255,91,110,1)" />
+                <circle cx="150" cy="200" r="40" stroke="rgba(208,24,227,0.5)" strokeWidth="1" strokeDasharray="4 4" fill="none" />
+                <rect x="145" y="195" width="10" height="10" fill="rgba(208,24,227,1)" />
 
                 <rect x="280" y="100" width="370" height="40" rx="4" fill="hsl(var(--muted))" opacity="0.2" />
                 <rect x="280" y="160" width="370" height="40" rx="4" fill="hsl(var(--muted))" opacity="0.1" />
@@ -655,7 +638,7 @@ export default function Home() {
                 <defs>
                   <linearGradient id="scanGradientHoriz" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="rgba(255,91,110,0.1)" />
+                    <stop offset="50%" stopColor="rgba(208,24,227,0.1)" />
                     <stop offset="100%" stopColor="transparent" />
                   </linearGradient>
                 </defs>
@@ -699,7 +682,7 @@ export default function Home() {
       {/* 9. CTA SECTION */}
       <section className="py-40 relative bg-background overflow-hidden border-t border-border">
         <CrosshairOverlay />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,91,110,0.1)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(208,24,227,0.1)_0%,transparent_50%)]" />
         
         <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
           <motion.div
@@ -715,7 +698,7 @@ export default function Home() {
             <div className="w-24 h-[1px] bg-primary mx-auto mb-12" />
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="/contact">
-                <Button data-testid="btn-initiate-setup" size="lg" className="w-full sm:w-auto h-16 px-12 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_40px_rgba(255,91,110,0.5)] transition-all duration-300">
+                <Button data-testid="btn-initiate-setup" size="lg" className="w-full sm:w-auto h-16 px-12 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_40px_rgba(208,24,227,0.5)] transition-all duration-300">
                   Initiate Setup
                 </Button>
               </Link>

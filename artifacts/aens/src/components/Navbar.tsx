@@ -35,8 +35,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <Link href="/">
-          <span className="font-serif text-2xl font-bold tracking-wider cursor-pointer flex items-center gap-2">
-            AENS<span className="text-primary text-3xl leading-none">.</span>
+          <span className="font-serif text-2xl font-bold tracking-wider cursor-pointer flex items-center gap-2" data-testid="logo-aens">
+            AENS
           </span>
         </Link>
 

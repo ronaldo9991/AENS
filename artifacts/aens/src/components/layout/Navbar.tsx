@@ -42,7 +42,7 @@ export function Navbar() {
               <div className="text-2xl font-serif font-bold tracking-tight text-foreground">
                 AENS
               </div>
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(255,91,110,0.8)]" />
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(208,24,227,0.8)]" />
             </Link>
 
             {/* Desktop Nav */}
@@ -75,7 +75,7 @@ export function Navbar() {
                 </button>
                 
                 <Link href="/contact" className="cursor-none">
-                  <Button className="rounded-none bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_rgba(255,91,110,0.4)] transition-all duration-300 relative overflow-hidden group cursor-none">
+                  <Button className="rounded-none bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_rgba(208,24,227,0.4)] transition-all duration-300 relative overflow-hidden group cursor-none">
                     <span className="relative z-10 font-mono uppercase tracking-wider text-xs">Deploy System</span>
                     <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0" />
                   </Button>

@@ -23,7 +23,7 @@ export default function Contact() {
     >
       {/* Hero */}
       <section className="pt-40 pb-20 border-b border-border bg-card relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,91,110,0.05)_0%,transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(208,24,227,0.05)_0%,transparent_50%)] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl space-y-8">
             <motion.div 
@@ -160,7 +160,7 @@ export default function Contact() {
                   </div>
 
                   <div className="pt-4">
-                    <Button type="submit" className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(255,91,110,0.4)] transition-all group overflow-hidden relative">
+                    <Button type="submit" className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.4)] transition-all group overflow-hidden relative">
                       <span className="relative z-10 flex items-center justify-center">
                         Transmit Request
                       </span>

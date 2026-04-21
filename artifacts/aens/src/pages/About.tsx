@@ -12,17 +12,17 @@ import {
 
 export default function About() {
   const principles = [
-    { title: "Precision", icon: CrosshairIcon, desc: "We operate with surgical accuracy. False positives are unacceptable. False negatives are catastrophic. Every calculation is absolute." },
-    { title: "Security", icon: ShieldNodeIcon, desc: "Our infrastructure is designed for the world's most sensitive environments. Zero trust by default, verifiable by design." },
-    { title: "Intelligence", icon: NeuralDiagramIcon, desc: "We build adaptive neural networks that evolve faster than the synthetic threats they hunt. Dynamic, autonomous, relentless." },
-    { title: "Execution", icon: HexagonIcon, desc: "Ideas don't secure enterprises. Flawless execution and sub-50ms latency do. We ship systems that perform under extreme duress." },
-    { title: "Trust", icon: ConcentricArcsIcon, desc: "We are the definitive layer of truth in an era of infinite synthetic generation. When AENS clears it, it is real." }
+    { title: "Precision", icon: CrosshairIcon, desc: "Our agents operate with surgical accuracy. Every action is auditable, every decision policy-bound." },
+    { title: "Security", icon: ShieldNodeIcon, desc: "Built for the world's most sensitive environments. Zero trust by default, verifiable by design." },
+    { title: "Intelligence", icon: NeuralDiagramIcon, desc: "Adaptive systems that learn from your enterprise data and evolve with your operations." },
+    { title: "Execution", icon: HexagonIcon, desc: "Ideas don't run a business. Production-grade pipelines, 99.99% SLA and sub-50ms latency do." },
+    { title: "Trust", icon: ConcentricArcsIcon, desc: "From governance to deepfake defence — AENS is the verifiable layer of truth in your stack." }
   ];
 
   const milestones = [
-    { year: "2023", title: "Genesis", desc: "Core neural architecture developed to identify synthetic audio artifacts." },
-    { year: "2024", title: "Multi-Modal Expansion", desc: "Simultaneous video, image, and metadata processing layer deployed." },
-    { year: "2025", title: "Enterprise Scaling", desc: "Global trust infrastructure adopted by Fortune 100 organizations." }
+    { year: "2023", title: "Genesis", desc: "Founded to bring autonomous AI agents to regulated B2B environments." },
+    { year: "2024", title: "Agentic Platform", desc: "Multi-step reasoning, tool use and human-in-the-loop launched at enterprise scale." },
+    { year: "2025", title: "Enterprise Scaling", desc: "Adopted by Fortune 100 companies across finance, defence and global media." }
   ];
 
   return (
@@ -54,8 +54,8 @@ export default function About() {
                 transition={{ delay: 0.1 }}
                 className="text-6xl md:text-8xl lg:text-[7rem] font-serif font-bold text-foreground leading-[0.9]"
               >
-                Defining <br/>
-                <span className="italic font-normal text-muted-foreground">Truth.</span>
+                Engineering <br/>
+                <span className="italic font-normal text-muted-foreground">Autonomy.</span>
               </motion.h1>
             </div>
             <div className="lg:col-span-4 pb-4">
@@ -65,7 +65,7 @@ export default function About() {
                 transition={{ delay: 0.2 }}
                 className="text-xl text-muted-foreground font-sans leading-relaxed border-l border-border pl-6"
               >
-                We are the architects of trust in the generative AI era. Our mission is to protect enterprise integrity through uncompromised synthetic media intelligence.
+                AENS builds enterprise AI systems and autonomous agents that run real B2B operations. Deepfake defence is one capability — agentic intelligence is the foundation.
               </motion.p>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-12">Leadership Doctrine</h2>
               <div className="bg-background border border-border p-10 relative group">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[radial-gradient(ellipse_at_top_right,rgba(255,91,110,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[radial-gradient(ellipse_at_top_right,rgba(208,24,227,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <HexagonIcon className="w-10 h-10 text-primary/50 mb-8" />
                 <p className="text-lg text-muted-foreground font-sans leading-relaxed mb-8 italic">
                   "In a world where seeing is no longer believing, verification becomes the highest form of security. We are building the engine that restores objective reality to digital environments."
@@ -207,11 +207,11 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-40 bg-background text-center border-t border-border relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(255,91,110,0.1)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(208,24,227,0.1)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 relative z-10">
           <h2 className="text-5xl lg:text-7xl font-serif font-bold text-foreground mb-12">Deploy Elite Intelligence.</h2>
           <Link href="/contact">
-            <Button data-testid="btn-contact-team" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(255,91,110,0.4)] transition-all">
+            <Button data-testid="btn-contact-team" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.4)] transition-all">
               Contact Our Team
             </Button>
           </Link>
