@@ -1,57 +1,70 @@
 import { Link } from "wouter";
+import { NeuralDiagramIcon, HexagonIcon } from "@/components/icons";
 
 export function Footer() {
   return (
-    <footer className="bg-graphite dark:bg-[#050505] border-t border-border pt-20 pb-10 text-white">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="inline-block mb-6">
-              <span className="font-serif text-3xl font-bold tracking-tight text-white">
-                AENS<span className="text-accent">.</span>
-              </span>
+    <footer className="bg-background border-t border-border overflow-hidden">
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+          
+          <div className="lg:col-span-4 space-y-6">
+            <Link href="/" className="flex items-center gap-3 cursor-none">
+              <div className="text-3xl font-serif font-bold tracking-tight text-foreground">
+                AENS
+              </div>
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             </Link>
-            <p className="text-gray-400 max-w-sm mb-8 font-sans">
-              The elite Artificial Intelligence Enterprise Nervous System. 
-              Precision-engineered trust infrastructure for the AI era.
+            <p className="text-muted-foreground font-sans text-sm max-w-sm">
+              The Artificial Intelligence Enterprise Nervous System. Definitive synthetic media intelligence and threat detection for global enterprise.
             </p>
-            <div className="flex space-x-4">
-              {/* Social icons placeholders */}
-              <a href="#" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-colors">
-                <span className="sr-only">Twitter</span>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.004 3.974H5.078z"></path></svg>
+            <div className="flex gap-4 pt-4">
+              <a href="#" className="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors cursor-none">
+                <NeuralDiagramIcon className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-colors">
-                <span className="sr-only">LinkedIn</span>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd"></path></svg>
+              <a href="#" className="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors cursor-none">
+                <HexagonIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
-          
-          <div>
-            <h4 className="font-sans font-semibold text-white mb-6 tracking-wide uppercase text-sm">Capabilities</h4>
-            <ul className="space-y-4">
-              <li><Link href="/solutions" className="text-gray-400 hover:text-accent transition-colors">Deepfake Detection</Link></li>
-              <li><Link href="/solutions" className="text-gray-400 hover:text-accent transition-colors">Synthetic Media Intelligence</Link></li>
-              <li><Link href="/solutions" className="text-gray-400 hover:text-accent transition-colors">Enterprise AI Systems</Link></li>
-              <li><Link href="/solutions" className="text-gray-400 hover:text-accent transition-colors">Trust Infrastructure</Link></li>
+
+          <div className="lg:col-span-2 lg:col-start-7">
+            <h4 className="font-mono text-[10px] tracking-widest uppercase text-primary mb-6">Capabilities</h4>
+            <ul className="space-y-4 text-sm font-sans text-muted-foreground">
+              <li><Link href="/solutions" className="hover:text-foreground transition-colors cursor-none">Deepfake Detection</Link></li>
+              <li><Link href="/solutions" className="hover:text-foreground transition-colors cursor-none">Enterprise AI</Link></li>
+              <li><Link href="/solutions" className="hover:text-foreground transition-colors cursor-none">Autonomous Agents</Link></li>
+              <li><Link href="/solutions" className="hover:text-foreground transition-colors cursor-none">Trust Infrastructure</Link></li>
             </ul>
           </div>
-          
-          <div>
-            <h4 className="font-sans font-semibold text-white mb-6 tracking-wide uppercase text-sm">Company</h4>
-            <ul className="space-y-4">
-              <li><Link href="/about" className="text-gray-400 hover:text-accent transition-colors">About AENS</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-accent transition-colors">Contact</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-accent transition-colors">Careers</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-accent transition-colors">Privacy Policy</a></li>
+
+          <div className="lg:col-span-2">
+            <h4 className="font-mono text-[10px] tracking-widest uppercase text-primary mb-6">Organization</h4>
+            <ul className="space-y-4 text-sm font-sans text-muted-foreground">
+              <li><Link href="/about" className="hover:text-foreground transition-colors cursor-none">About AENS</Link></li>
+              <li><Link href="/about" className="hover:text-foreground transition-colors cursor-none">Principles</Link></li>
+              <li><a href="#" className="hover:text-foreground transition-colors cursor-none">Careers</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors cursor-none">Press</a></li>
             </ul>
           </div>
+
+          <div className="lg:col-span-2">
+            <h4 className="font-mono text-[10px] tracking-widest uppercase text-primary mb-6">Legal</h4>
+            <ul className="space-y-4 text-sm font-sans text-muted-foreground">
+              <li><a href="#" className="hover:text-foreground transition-colors cursor-none">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors cursor-none">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors cursor-none">Data Sovereignty</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors cursor-none">Security Brief</a></li>
+            </ul>
+          </div>
+
         </div>
-        
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} AENS. All rights reserved.</p>
-          <p className="text-gray-600 text-xs font-mono uppercase tracking-widest">Trust Infrastructure / Global</p>
+      </div>
+
+      <div className="w-full border-t border-border/50 bg-card py-4 overflow-hidden relative">
+        <div className="flex w-max animate-[scroll_40s_linear_infinite] opacity-50 text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
+          <span className="mx-8">AENS // ARTIFICIAL INTELLIGENCE ENTERPRISE NERVOUS SYSTEM // EST. 2024 // ALL RIGHTS RESERVED</span>
+          <span className="mx-8">AENS // ARTIFICIAL INTELLIGENCE ENTERPRISE NERVOUS SYSTEM // EST. 2024 // ALL RIGHTS RESERVED</span>
+          <span className="mx-8">AENS // ARTIFICIAL INTELLIGENCE ENTERPRISE NERVOUS SYSTEM // EST. 2024 // ALL RIGHTS RESERVED</span>
         </div>
       </div>
     </footer>

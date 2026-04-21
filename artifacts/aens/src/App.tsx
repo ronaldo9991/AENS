@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Layout from "@/components/Layout";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -30,6 +31,7 @@ function App() {
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <CustomCursor />
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <Layout>
               <Router />
