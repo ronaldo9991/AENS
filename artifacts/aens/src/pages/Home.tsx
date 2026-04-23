@@ -1,201 +1,20 @@
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { NeuralNetwork } from "@/components/ui/NeuralNetwork";
+import { EntropyDemo } from "@/components/ui/demo";
 import { CrosshairOverlay, SectionDivider } from "@/components/ui/SectionElements";
-import { 
-  HexagonIcon, 
-  ConcentricArcsIcon, 
-  CrosshairIcon, 
-  OrbitalRingIcon, 
-  NeuralDiagramIcon, 
-  ShieldNodeIcon, 
-  GridMatrixIcon 
+import {
+  HexagonIcon,
+  ConcentricArcsIcon,
+  CrosshairIcon,
+  OrbitalRingIcon,
+  NeuralDiagramIcon,
+  ShieldNodeIcon,
+  GridMatrixIcon
 } from "@/components/icons";
 import { useRef, useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
-import robotHero from "@/assets/robot-mascot.png";
-
-const RobotHero = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) / rect.width;
-      const dy = (e.clientY - cy) / rect.height;
-      setTilt({ x: dx * 8, y: -dy * 8 });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="w-full max-w-[640px] aspect-square relative mx-auto mt-16 md:mt-24 lg:mt-32"
-      data-testid="hero-robot"
-    >
-      {/* radial fuchsia glow behind robot */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(208,24,227,0.35)_0%,rgba(249,115,22,0.12)_35%,transparent_70%)] blur-2xl" />
-
-      {/* concentric pulsing rings */}
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          className="absolute inset-0 rounded-full border border-primary/20"
-          initial={{ scale: 0.6, opacity: 0.6 }}
-          animate={{ scale: 1.15, opacity: 0 }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeOut",
-            delay: i * 1.3,
-          }}
-        />
-      ))}
-
-      {/* outer rotating ring */}
-      <motion.div
-        className="absolute inset-[-4%] rounded-full border border-dashed border-primary/25"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-      >
-        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(228,65,243,1)]" />
-        <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(228,65,243,1)]" />
-        <div className="absolute -bottom-1 left-1/3 w-1.5 h-1.5 rounded-full bg-primary/70" />
-      </motion.div>
-
-      {/* inner counter-rotating ring */}
-      <motion.div
-        className="absolute inset-[8%] rounded-full border border-primary/15"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-      />
-
-      {/* robot image with mouse parallax tilt + breathing */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{
-          transform: `perspective(1200px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-          transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
-        }}
-      >
-        <motion.img
-          src={robotHero}
-          alt="AENS — enterprise AI agent mascot"
-          className="relative z-10 w-[92%] h-[92%] object-contain drop-shadow-[0_30px_70px_rgba(208,24,227,0.45)]"
-          animate={{ y: [0, -18, 0], rotate: [-1.5, 1.5, -1.5] }}
-          transition={{
-            y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
-            rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-          }}
-          data-testid="img-robot-hero"
-        />
-      </motion.div>
-
-      {/* scan line sweep */}
-      <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-        <motion.div
-          className="absolute left-0 right-0 h-24 bg-gradient-to-b from-transparent via-primary/30 to-transparent mix-blend-screen"
-          initial={{ y: "-20%" }}
-          animate={{ y: "120%" }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "linear", repeatDelay: 1.2 }}
-        />
-      </div>
-
-      {/* corner crosshair markers */}
-      {[
-        { top: "0", left: "0", rot: 0 },
-        { top: "0", right: "0", rot: 90 },
-        { bottom: "0", right: "0", rot: 180 },
-        { bottom: "0", left: "0", rot: 270 },
-      ].map((p, i) => (
-        <div
-          key={i}
-          className="absolute w-6 h-6 pointer-events-none"
-          style={{ ...p, transform: `rotate(${p.rot}deg)` }}
-        >
-          <div className="absolute top-0 left-0 w-full h-px bg-primary/60" />
-          <div className="absolute top-0 left-0 h-full w-px bg-primary/60" />
-        </div>
-      ))}
-
-      {/* floating HUD card — AGENTS DEPLOYED */}
-      <motion.div
-        className="absolute top-[8%] -left-4 md:-left-12 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(208,24,227,0.15)]"
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
-        transition={{ opacity: { delay: 1, duration: 0.8 }, x: { delay: 1, duration: 0.8 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
-        data-testid="hud-agents"
-      >
-        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Agents Live</div>
-        <div className="text-2xl font-mono font-semibold text-foreground tabular-nums">
-          1,2<span className="text-primary">47</span>
-        </div>
-        <div className="text-[10px] font-mono text-primary/80 mt-1 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AUTONOMOUS
-        </div>
-      </motion.div>
-
-      {/* floating HUD card — ENTERPRISES */}
-      <motion.div
-        className="absolute top-[42%] -right-4 md:-right-16 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(208,24,227,0.15)]"
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
-        transition={{ opacity: { delay: 1.4, duration: 0.8 }, x: { delay: 1.4, duration: 0.8 }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-        data-testid="hud-uptime"
-      >
-        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">SLA Uptime</div>
-        <div className="text-2xl font-mono font-semibold text-foreground tabular-nums">
-          99<span className="text-primary">.99</span>%
-        </div>
-        <div className="text-[10px] font-mono text-muted-foreground mt-1">B2B GRADE</div>
-      </motion.div>
-
-      {/* floating HUD card — TASKS / SEC */}
-      <motion.div
-        className="absolute bottom-[10%] -left-2 md:-left-20 backdrop-blur-md bg-card/70 border border-primary/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(208,24,227,0.15)]"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: [0, -5, 0] }}
-        transition={{ opacity: { delay: 1.8, duration: 0.8 }, y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 } }}
-        data-testid="hud-nodes"
-      >
-        <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase mb-1">Tasks / sec</div>
-        <div className="text-xl font-mono font-semibold text-foreground tabular-nums">
-          48,<span className="text-primary">921</span>
-        </div>
-        <div className="flex gap-0.5 mt-1.5">
-          {[...Array(12)].map((_, i) => (
-            <motion.span
-              key={i}
-              className="w-1 h-3 bg-primary/40 rounded-sm"
-              animate={{ opacity: [0.2, 1, 0.2], scaleY: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.08 }}
-            />
-          ))}
-        </div>
-      </motion.div>
-
-      {/* small orbital data nodes */}
-      {[0, 72, 144, 216, 288].map((deg, i) => (
-        <motion.div
-          key={i}
-          className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(228,65,243,0.9)]"
-          style={{ transformOrigin: "0 0" }}
-          animate={{ rotate: [deg, deg + 360] }}
-          transition={{ duration: 30 + i * 4, repeat: Infinity, ease: "linear" }}
-        >
-          <div style={{ transform: "translate(220px, -3px)" }} className="w-1.5 h-1.5 rounded-full bg-primary" />
-        </motion.div>
-      ))}
-    </div>
-  );
-};
+import PrecisionRobot from "@/components/PrecisionRobot";
 
 const Counter = ({ end, label, suffix = "", prefix = "" }: { end: number, label: string, suffix?: string, prefix?: string }) => {
   const ref = useRef(null);
@@ -218,6 +37,7 @@ const Counter = ({ end, label, suffix = "", prefix = "" }: { end: number, label:
       }, 16);
       return () => clearInterval(timer);
     }
+    return undefined;
   }, [isInView, end]);
 
   const displayCount = end % 1 !== 0 && count === Math.floor(end) 
@@ -227,7 +47,7 @@ const Counter = ({ end, label, suffix = "", prefix = "" }: { end: number, label:
   return (
     <div ref={ref} className="text-left py-8 border-t border-border relative group">
       <div className="absolute top-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-700" />
-      <div className="text-6xl md:text-7xl font-serif font-bold text-foreground mb-4 flex items-baseline">
+      <div className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground mb-4 flex items-baseline">
         <span className="text-3xl text-primary/70 font-mono mr-1">{prefix}</span>
         {displayCount}
         <span className="text-3xl text-primary/70 font-mono ml-1">{suffix}</span>
@@ -251,7 +71,6 @@ export default function Home() {
     { title: "Threat Profiling", desc: "Actor signature matching", icon: CrosshairIcon },
     { title: "Zero-Trust Integration", desc: "API & webhook triggers", icon: GridMatrixIcon },
   ];
-
   const solutions = [
     { num: "01", title: "Enterprise AI Systems", desc: "Secure, air-gapped AI infrastructure tailored to your stack.", icon: GridMatrixIcon },
     { num: "02", title: "Autonomous AI Agents", desc: "24/7 agents that plan, execute and report across your business.", icon: OrbitalRingIcon },
@@ -259,12 +78,6 @@ export default function Home() {
     { num: "04", title: "Knowledge & RAG", desc: "Private LLM gateways grounded in your enterprise data.", icon: NeuralDiagramIcon },
     { num: "05", title: "Trust & Governance", desc: "Audit trails, policy guardrails and zero-trust integration.", icon: ShieldNodeIcon },
     { num: "06", title: "Deepfake Detection", desc: "One of our specialised modules — synthetic media analysis at 99.9% accuracy.", icon: ConcentricArcsIcon },
-  ];
-
-  const whyAens = [
-    { num: "01", title: "Precision First", desc: "False positives are unacceptable. Sub-50ms latency." },
-    { num: "02", title: "Air-Gapped Ready", desc: "Deployed directly into classified enterprise environments." },
-    { num: "03", title: "Multi-Modal", desc: "Simultaneous analysis across video, audio, and metadata." },
   ];
 
   const sectors = ["Defense", "Finance", "Global Media", "Government", "Critical Infrastructure"];
@@ -276,110 +89,126 @@ export default function Home() {
       exit={{ opacity: 0 }}
       className="w-full flex flex-col bg-background"
     >
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden border-b border-border/50">
+      {/* 1. HERO SECTION — "The mind above the machines" */}
+      <section className="relative min-h-[90dvh] flex items-center overflow-x-hidden overflow-y-visible border-b border-border/50 pt-24 pb-12 lg:min-h-[92dvh] lg:pt-28 lg:pb-14">
         <CrosshairOverlay />
-        <NeuralNetwork />
-        
-        <div className="container mx-auto px-6 z-10 pt-32 lg:pt-20">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-8 relative z-20">
+
+        {/* cool platinum ambient (subtle) */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_48%,rgba(225,230,240,0.07)_0%,transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent pointer-events-none z-[2]" />
+
+        <div className="container mx-auto px-6 lg:px-12 xl:px-16 z-10 w-full">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-center">
+
+            {/* LEFT COLUMN — narrative */}
+            <div className="lg:col-span-6 xl:col-span-7 relative z-20 space-y-9 lg:space-y-10">
+
+              {/* eyebrow */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
                 className="flex items-center gap-4"
               >
-                <div className="w-12 h-[1px] bg-primary" />
-                <span className="text-primary uppercase tracking-[0.2em] font-mono text-[10px] font-medium">
-                  ENTERPRISE AI / AGENTIC SYSTEMS / B2B
+                <div className="w-8 h-[1px] bg-primary" />
+                <span className="text-primary uppercase tracking-[0.26em] font-mono text-[10px] font-medium">
+                  CLASSIFIED · TIER-01 OVERSIGHT
+                </span>
+                <span className="hidden md:inline text-muted-foreground/50 font-mono text-[10px] tracking-[0.22em]">
+                  AENS—00.247
                 </span>
               </motion.div>
-              
+
+              {/* HEADLINE — balanced scale */}
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] tracking-tight uppercase"
+                transition={{ duration: 0.85, delay: 0.3 }}
+                className="leading-[0.9] tracking-tight text-foreground"
               >
-                <span className="font-sans block mb-2">AI Systems</span>
-                <span className="font-serif italic font-normal text-muted-foreground block mb-2 lowercase text-4xl md:text-6xl">that run your</span>
-                <span className="font-sans block text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">Enterprise.</span>
+                <span className="block font-sans text-[2.2rem] font-black uppercase sm:text-[3rem] lg:text-[4rem] xl:text-[5.2rem]">
+                  INTELLIGENCE
+                </span>
+                <span className="mt-2 block font-serif text-[2.1rem] italic font-medium lowercase text-foreground/60 sm:text-[2.8rem] lg:text-[3.7rem] xl:text-[4.7rem]">
+                  that run your
+                </span>
+                <span className="mt-3 block bg-gradient-to-r from-[#d9dde4] via-[#aeb5c0] to-[#7f8794] bg-clip-text font-sans text-[2.4rem] font-black uppercase leading-[0.92] text-transparent sm:text-[3.25rem] lg:text-[4.4rem] xl:text-[5.8rem]">
+                  Enterprise.
+                </span>
               </motion.h1>
 
+              {/* subhead */}
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-xl md:text-2xl text-muted-foreground max-w-xl font-sans leading-relaxed border-l border-primary/30 pl-6 py-2"
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="text-base md:text-[17px] text-muted-foreground max-w-[540px] font-sans leading-[1.7] border-l border-primary/40 pl-5"
               >
-                AENS designs and deploys autonomous AI agents and intelligent systems for B2B operations — from workflow automation to deepfake defence, all governed by enterprise-grade trust infrastructure.
+                AENS designs and deploys <span className="text-foreground font-medium">autonomous AI agents and intelligent systems</span> for B2B operations — from workflow automation to decision intelligence, all governed by enterprise-grade trust infrastructure.
               </motion.p>
 
+              {/* stats row */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex flex-col sm:flex-row items-center gap-6 pt-8"
+                transition={{ duration: 0.8, delay: 0.85 }}
+                className="flex flex-wrap items-center gap-x-10 gap-y-3 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex w-2 h-2">
+                    <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-70" />
+                    <span className="relative rounded-full w-2 h-2 bg-primary" />
+                  </span>
+                  Agent Orchestration
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
+                  Continuous Autonomy
+                </div>
+                <div className="hidden md:flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-foreground/50" />
+                  Verifiable Governance
+                </div>
+              </motion.div>
+
+              {/* CTA row */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
               >
                 <Link href="/solutions">
-                  <Button data-testid="btn-deploy-hero" size="lg" className="w-full sm:w-auto h-14 px-8 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.5)] transition-all duration-300 relative group overflow-hidden">
-                    <span className="relative z-10">Deploy AENS</span>
+                  <Button data-testid="btn-deploy-hero" size="lg" className="w-full sm:w-auto h-12 px-10 text-[11px] font-mono uppercase tracking-[0.24em] rounded-none bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 relative group overflow-hidden">
+                    <span className="relative z-10">Deploy Intelligence</span>
                     <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out z-0" />
                   </Button>
                 </Link>
                 <Link href="/about">
-                  <Button data-testid="btn-demo-hero" size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-sm font-mono uppercase tracking-widest rounded-none border-border hover:border-primary hover:bg-primary/5 text-foreground transition-all duration-300 group">
-                    Watch Demo <ChevronRight className="ml-2 w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                  <Button data-testid="btn-demo-hero" size="lg" variant="outline" className="w-full sm:w-auto h-12 px-10 text-[11px] font-mono uppercase tracking-[0.24em] rounded-none border-border hover:border-primary/60 hover:bg-primary/5 text-foreground transition-all duration-300 group">
+                    Meet the Overseer <ChevronRight className="ml-2 w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </motion.div>
             </div>
 
-            <div className="lg:col-span-5 relative lg:h-[800px] flex flex-col justify-center perspective-[1000px]">
-              <motion.div
-                className="relative w-full h-full var(--animate-float) transition-transform duration-500 hover:[transform:rotateY(-5deg)_rotateX(5deg)]"
-              >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
-                
-                <RobotHero />
+            {/* RIGHT COLUMN — overseer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="lg:col-span-6 xl:col-span-5 relative min-h-[500px] h-[min(74dvh,700px)] sm:min-h-[560px] sm:h-[min(78dvh,780px)] lg:min-h-[640px] lg:h-[min(82dvh,860px)] overflow-visible"
+            >
+              <PrecisionRobot />
+            </motion.div>
 
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.4, duration: 0.5 }}
-                  className="absolute top-1/2 left-10 bg-primary text-primary-foreground px-3 py-2 flex items-center gap-3 z-30 pointer-events-none shadow-[0_0_20px_rgba(208,24,227,0.4)]"
-                >
-                  <div className="w-2 h-2 bg-background rounded-full animate-pulse" />
-                  <span className="text-[10px] font-mono tracking-widest uppercase font-bold">Online</span>
-                </motion.div>
-              </motion.div>
-            </div>
-            
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-10 border-t border-border bg-background/80 backdrop-blur-md flex items-center px-6 overflow-hidden">
-          <div className="w-2 h-2 rounded-full bg-primary animate-pulse mr-4 shrink-0" />
-          <div className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground flex w-max animate-[scroll_30s_linear_infinite]">
-            <span className="mr-8">LIVE — 1,247 enterprise agents online</span>
-            <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">48,921 tasks orchestrated per second</span>
-            <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">99.99% SLA across all B2B deployments</span>
-            <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">LIVE — 1,247 enterprise agents online</span>
-            <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">48,921 tasks orchestrated per second</span>
-            <span className="mr-8 text-primary">•</span>
-            <span className="mr-8">99.99% SLA across all B2B deployments</span>
-          </div>
-        </div>
       </section>
 
       {/* 2. CAPABILITY MATRIX */}
-      <section className="py-32 bg-card relative">
+      <section className="py-20 md:py-28 bg-card relative">
         <SectionDivider id="01" label="CAPABILITY MATRIX" />
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/50 border border-border/50 p-px">
@@ -405,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* 3. FLAGSHIP PRODUCT SECTION */}
-      <section className="py-32 relative bg-background border-t border-border">
+      <section className="py-20 md:py-28 relative bg-background border-t border-border">
         <SectionDivider id="02" label="FLAGSHIP SYSTEMS" />
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -448,7 +277,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative w-full aspect-square bg-card border border-border shadow-2xl p-1 flex flex-col"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(208,24,227,0.05)_0%,transparent_100%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,230,240,0.05)_0%,transparent_100%)] pointer-events-none" />
               
               <div className="h-10 flex items-center justify-between px-4 border-b border-border/50 bg-background/50">
                 <div className="flex space-x-2">
@@ -471,7 +300,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex-1 border border-border/50 bg-background/50 relative overflow-hidden flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(208,24,227,0.1),transparent)] h-[200%] var(--animate-scan)" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(225,230,240,0.1),transparent)] h-[200%] var(--animate-scan)" />
                   <GridMatrixIcon className="w-32 h-32 text-border absolute opacity-50" />
                   
                   <div className="relative z-10 w-48 h-48 border border-primary/30 flex items-center justify-center bg-card/80 backdrop-blur-sm group">
@@ -501,8 +330,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SOLUTIONS GRID */}
-      <section className="py-32 bg-card relative border-t border-border">
+      {/* 4. SOLUTION ARCHITECTURE */}
+      <section className="py-20 md:py-28 bg-card relative border-t border-border">
         <SectionDivider id="03" label="SOLUTION ARCHITECTURE" />
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -520,7 +349,7 @@ export default function Home() {
                 <sol.icon className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors duration-500 mb-8" />
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-4">{sol.title}</h3>
                 <p className="text-muted-foreground font-sans text-sm leading-relaxed relative z-10 mb-8">{sol.desc}</p>
-                
+
                 <Link href="/solutions">
                   <div className="flex items-center text-primary text-xs font-mono uppercase tracking-widest group-hover:tracking-[0.2em] transition-all duration-500 cursor-none">
                     Learn more <div className="w-0 h-[1px] bg-primary group-hover:w-4 transition-all duration-500 ml-2" /><ChevronRight className="w-4 h-4 ml-1" />
@@ -532,36 +361,77 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. WHY AENS */}
-      <section className="py-32 bg-background relative">
-        <SectionDivider id="04" label="OPERATIONAL DOCTRINE" />
+      {/* 5. ORDER & CHAOS */}
+      <section className="py-20 md:py-28 bg-card relative border-t border-border">
+        <SectionDivider id="04" label="ORDER & CHAOS" />
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-16">
-            {whyAens.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: i * 0.2 }}
-                className="flex flex-col md:flex-row gap-8 items-start md:items-center relative"
-              >
-                <div className="text-8xl md:text-[10rem] font-serif font-bold text-primary/10 leading-none">
-                  {item.num}
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="border border-border bg-background p-4 md:p-6"
+            >
+              <EntropyDemo />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className="space-y-8"
+            >
+              <div className="space-y-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                  Intelligence Dynamics
                 </div>
-                <div className="flex-1 md:-ml-12 relative z-10 bg-card/80 backdrop-blur-md p-8 border border-border">
-                  <h3 className="text-2xl font-serif font-bold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground font-sans text-lg">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+                <h3 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
+                  From structured logic to adaptive agent behavior.
+                </h3>
+                <p className="max-w-xl border-l border-primary/40 pl-5 font-sans text-base leading-relaxed text-muted-foreground md:text-[17px]">
+                  The left lattice represents deterministic control, while the right mesh
+                  reflects adaptive decision-making. AENS agents operate between both:
+                  policy-bound where needed, autonomous where it drives outcomes.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  { num: "01", title: "Policy Core", desc: "Every action is constrained by verifiable governance." },
+                  { num: "02", title: "Adaptive Flow", desc: "Agents learn from context shifts across live operations." },
+                  { num: "03", title: "Human Override", desc: "Critical paths include explicit approval checkpoints." },
+                  { num: "04", title: "Continuous Audit", desc: "Decisions are logged, scored, and continuously refined." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.num}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: 0.12 + i * 0.06 }}
+                    className="border border-border/70 bg-background/55 p-5"
+                  >
+                    <div className="mb-2 font-mono text-[10px] tracking-[0.2em] text-primary/70">
+                      {item.num}
+                    </div>
+                    <h4 className="mb-1.5 font-mono text-xs uppercase tracking-[0.16em] text-foreground">
+                      {item.title}
+                    </h4>
+                    <p className="font-sans text-sm leading-relaxed text-muted-foreground">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* 6. DEVICE EXPERIENCE */}
-      <section className="py-32 bg-card relative border-y border-border overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent,rgba(208,24,227,0.03),transparent)]" />
+      <section className="py-20 md:py-28 bg-card relative border-y border-border overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent,rgba(225,230,240,0.03),transparent)]" />
         <SectionDivider id="05" label="OMNIPRESENT DEPLOYMENT" />
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
@@ -588,9 +458,9 @@ export default function Home() {
                 {/* Screen Content */}
                 <rect x="20" y="50" width="240" height="500" rx="24" fill="hsl(var(--background))" />
                 <g className="animate-pulse">
-                  <circle cx="140" cy="200" r="40" stroke="rgba(208,24,227,0.5)" strokeWidth="2" fill="none" />
-                  <circle cx="140" cy="200" r="30" stroke="rgba(208,24,227,0.8)" strokeWidth="1" fill="none" />
-                  <circle cx="140" cy="200" r="5" fill="rgba(208,24,227,1)" />
+                  <circle cx="140" cy="200" r="40" stroke="rgba(225,230,240,0.5)" strokeWidth="2" fill="none" />
+                  <circle cx="140" cy="200" r="30" stroke="rgba(225,230,240,0.8)" strokeWidth="1" fill="none" />
+                  <circle cx="140" cy="200" r="5" fill="rgba(225,230,240,1)" />
                 </g>
                 <rect x="40" y="300" width="200" height="40" rx="4" fill="hsl(var(--muted))" opacity="0.5" />
                 <rect x="40" y="360" width="160" height="15" rx="2" fill="hsl(var(--muted))" opacity="0.3" />
@@ -600,7 +470,7 @@ export default function Home() {
                 <defs>
                   <linearGradient id="scanGradient" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="rgba(208,24,227,0.2)" />
+                    <stop offset="50%" stopColor="rgba(225,230,240,0.2)" />
                     <stop offset="100%" stopColor="transparent" />
                   </linearGradient>
                 </defs>
@@ -626,8 +496,8 @@ export default function Home() {
                 <circle cx="80" cy="40" r="5" fill="hsl(var(--border))" />
                 
                 <rect x="50" y="100" width="200" height="200" rx="4" fill="hsl(var(--muted))" opacity="0.1" stroke="hsl(var(--border))" strokeWidth="1" />
-                <circle cx="150" cy="200" r="40" stroke="rgba(208,24,227,0.5)" strokeWidth="1" strokeDasharray="4 4" fill="none" />
-                <rect x="145" y="195" width="10" height="10" fill="rgba(208,24,227,1)" />
+                <circle cx="150" cy="200" r="40" stroke="rgba(225,230,240,0.5)" strokeWidth="1" strokeDasharray="4 4" fill="none" />
+                <rect x="145" y="195" width="10" height="10" fill="rgba(225,230,240,1)" />
 
                 <rect x="280" y="100" width="370" height="40" rx="4" fill="hsl(var(--muted))" opacity="0.2" />
                 <rect x="280" y="160" width="370" height="40" rx="4" fill="hsl(var(--muted))" opacity="0.1" />
@@ -638,7 +508,7 @@ export default function Home() {
                 <defs>
                   <linearGradient id="scanGradientHoriz" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="rgba(208,24,227,0.1)" />
+                    <stop offset="50%" stopColor="rgba(225,230,240,0.1)" />
                     <stop offset="100%" stopColor="transparent" />
                   </linearGradient>
                 </defs>
@@ -649,9 +519,9 @@ export default function Home() {
       </section>
 
       {/* 7. STATS SECTION */}
-      <section className="py-24 bg-background border-b border-border">
+      <section className="py-20 md:py-24 bg-background border-b border-border">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 md:gap-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <Counter end={4} label="Media Types" />
             <Counter end={24} label="Hour Detection" suffix="/7" />
             <Counter end={50} label="Ms Latency" suffix="<" />
@@ -661,7 +531,7 @@ export default function Home() {
       </section>
 
       {/* 8. CASE STUDIES / SECTORS */}
-      <section className="py-24 bg-card border-b border-border overflow-hidden relative">
+      <section className="py-16 md:py-20 bg-card border-b border-border overflow-hidden relative">
         <div className="container mx-auto px-6 mb-12">
           <div className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase text-center">
             DEPOLYED ACROSS SECURE ENVIRONMENTS
@@ -680,9 +550,9 @@ export default function Home() {
       </section>
 
       {/* 9. CTA SECTION */}
-      <section className="py-40 relative bg-background overflow-hidden border-t border-border">
+      <section className="py-24 md:py-32 relative bg-background overflow-hidden border-t border-border">
         <CrosshairOverlay />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(208,24,227,0.1)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(225,230,240,0.1)_0%,transparent_50%)]" />
         
         <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
           <motion.div
@@ -698,7 +568,7 @@ export default function Home() {
             <div className="w-24 h-[1px] bg-primary mx-auto mb-12" />
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="/contact">
-                <Button data-testid="btn-initiate-setup" size="lg" className="w-full sm:w-auto h-16 px-12 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_40px_rgba(208,24,227,0.5)] transition-all duration-300">
+                <Button data-testid="btn-initiate-setup" size="lg" className="w-full sm:w-auto h-16 px-12 text-sm font-mono uppercase tracking-widest rounded-none bg-primary text-primary-foreground hover:bg-primary/90 border border-primary hover:shadow-[0_0_40px_rgba(225,230,240,0.5)] transition-all duration-300">
                   Initiate Setup
                 </Button>
               </Link>

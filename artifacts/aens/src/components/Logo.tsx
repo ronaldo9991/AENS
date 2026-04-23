@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import logoMark from "@/assets/aens-logo-mark.png";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
@@ -8,19 +7,19 @@ interface LogoProps {
 }
 
 const sizeMap = {
-  sm: { mark: 28, gap: "gap-2", text: "text-base" },
-  md: { mark: 36, gap: "gap-2.5", text: "text-2xl" },
-  lg: { mark: 56, gap: "gap-3", text: "text-3xl" },
+  sm: { width: 46, gap: "gap-2", wordmark: 84 },
+  md: { width: 56, gap: "gap-2.5", wordmark: 104 },
+  lg: { width: 66, gap: "gap-3", wordmark: 124 },
 };
 
 export function LogoMark({ size = 36, className = "" }: { size?: number; className?: string }) {
   return (
     <img
-      src={logoMark}
+      src="/AENSLOGO.png"
       alt="AENS"
       width={size}
       height={size}
-      className={`object-contain shrink-0 drop-shadow-[0_0_12px_rgba(208,24,227,0.45)] ${className}`}
+      className={`object-contain shrink-0 drop-shadow-[0_0_12px_rgba(225,230,240,0.45)] ${className}`}
       style={{ width: size, height: size }}
     />
   );
@@ -31,10 +30,18 @@ export default function Logo({ size = "md", asLink = true, className = "" }: Log
 
   const content = (
     <span className={`inline-flex items-center ${s.gap} ${className}`} data-testid="logo-aens">
-      <LogoMark size={s.mark} />
-      <span className={`font-serif ${s.text} font-bold tracking-[0.18em] leading-none text-foreground`}>
-        AENS
-      </span>
+      <img
+        src="/AENSLOGO.png"
+        alt="AENS"
+        className="h-auto shrink-0 object-contain drop-shadow-[0_0_12px_rgba(225,230,240,0.45)]"
+        style={{ width: s.width }}
+      />
+      <img
+        src="/aens-wordmark.png"
+        alt="AENS"
+        className="h-auto shrink-0 object-contain"
+        style={{ width: s.wordmark }}
+      />
     </span>
   );
 

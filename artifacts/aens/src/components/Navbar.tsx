@@ -50,7 +50,7 @@ export default function Navbar() {
                     data-testid={`nav-${link.name.toLowerCase()}`}
                     className={`relative px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-[0.18em] cursor-pointer transition-all ${
                       active
-                        ? 'text-primary-foreground bg-primary shadow-[0_0_20px_rgba(208,24,227,0.45)]'
+                        ? 'text-primary-foreground bg-primary shadow-[0_0_20px_rgba(225,230,240,0.45)]'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
@@ -73,7 +73,7 @@ export default function Navbar() {
             </button>
             <Button
               data-testid="btn-book-consult"
-              className="rounded-full h-9 px-5 text-[10px] font-mono tracking-[0.2em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(208,24,227,0.35)] hover:shadow-[0_0_28px_rgba(208,24,227,0.55)] transition-all"
+              className="rounded-full h-9 px-5 text-[10px] font-mono tracking-[0.2em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(225,230,240,0.35)] hover:shadow-[0_0_28px_rgba(225,230,240,0.55)] transition-all"
             >
               Book Consult
             </Button>

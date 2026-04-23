@@ -42,7 +42,7 @@ export function CustomCursor() {
           x: mousePosition.x - 20,
           y: mousePosition.y - 20,
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(208,24,227, 0.1)" : "rgba(208,24,227, 0)",
+          backgroundColor: isHovering ? "rgba(225,230,240, 0.1)" : "rgba(225,230,240, 0)",
         }}
         transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
       />

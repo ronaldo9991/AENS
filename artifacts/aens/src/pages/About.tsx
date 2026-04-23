@@ -75,50 +75,105 @@ export default function About() {
       </section>
 
       {/* What AENS Means */}
-      <section className="py-40 bg-card relative">
-        <div className="container mx-auto px-6">
+      <section className="py-36 bg-card relative border-y border-border/60 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(225,230,240,0.06)_0%,transparent_62%)] pointer-events-none" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="mb-14 flex items-center gap-4">
+            <div className="h-px w-8 bg-primary" />
+            <span className="font-mono text-[10px] tracking-[0.24em] uppercase text-primary">
+              CORE THESIS
+            </span>
+          </div>
+
           <div className="grid md:grid-cols-12 gap-16 items-start">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
+            <motion.div
+              initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="md:col-span-5 relative"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-5"
             >
-              <div className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-foreground space-y-2">
-                {[
-                  { l: "A", w: "Artificial" },
-                  { l: "E", w: "Enterprise" },
-                  { l: "N", w: "Nervous" },
-                  { l: "S", w: "System" },
-                ].map((row) => (
-                  <div key={row.l} className="flex items-center gap-6 group">
-                    <span className="text-primary font-mono text-base w-6 tracking-widest">{row.l}</span>
-                    <span className="text-foreground group-hover:text-primary transition-colors duration-500">
-                      {row.w}
-                    </span>
-                  </div>
-                ))}
+              <div className="relative border border-border/70 bg-background/55 backdrop-blur-sm p-8 md:p-10">
+                <div className="absolute top-0 left-0 h-full w-[2px] bg-primary/70" />
+                <div className="space-y-3">
+                  {[
+                    { l: "A", w: "Artificial" },
+                    { l: "E", w: "Enterprise" },
+                    { l: "N", w: "Nervous" },
+                    { l: "S", w: "System" },
+                  ].map((row, i) => (
+                    <motion.div
+                      key={row.l}
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: 0.08 * i }}
+                      className="group flex items-center gap-5"
+                    >
+                      <span className="w-5 font-mono text-sm tracking-widest text-primary/90">
+                        {row.l}
+                      </span>
+                      <span className="font-serif text-5xl md:text-6xl lg:text-[4.35rem] leading-[0.95] font-bold text-foreground transition-colors duration-400 group-hover:text-primary">
+                        {row.w}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
+            <motion.div
+              initial={{ opacity: 0, x: 28 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="md:col-span-7 space-y-8 text-xl text-muted-foreground font-sans pt-4"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.06 }}
+              className="md:col-span-7 space-y-7 pt-2"
             >
-              <p>
-                As generative AI commoditizes the creation of hyper-realistic video, audio, and documents, the foundational concept of digital truth is fracturing. Enterprises face a paradigm where any digital artifact can be seamlessly spoofed.
-              </p>
-              <p>
-                AENS was forged to be the definitive countermeasure. We build intelligence systems that act as an enterprise's nervous system—feeling, analyzing, and verifying every piece of digital input before it reaches the brain.
-              </p>
-              <div className="p-8 border border-primary/30 bg-primary/5 mt-12 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-                <p className="text-foreground font-serif text-2xl leading-snug">
-                  We do not build generative models. We build the architecture that holds them accountable.
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-lg md:text-[1.32rem] leading-relaxed text-muted-foreground font-sans"
+              >
+                As generative AI commoditizes the creation of hyper-realistic video,
+                audio, and documents, the foundational concept of digital truth is
+                fracturing. Enterprises face a paradigm where any digital artifact can
+                be seamlessly spoofed.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 }}
+                className="text-lg md:text-[1.32rem] leading-relaxed text-muted-foreground font-sans"
+              >
+                AENS was forged to be the definitive countermeasure. We build
+                intelligence systems that act as an enterprise nervous system-feeling,
+                analyzing, and verifying every piece of digital input before it reaches
+                the core.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.16 }}
+                className="mt-8 relative overflow-hidden border border-primary/30 bg-primary/5 p-8 md:p-9"
+              >
+                <motion.div
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: 0.28, ease: "easeOut" }}
+                  style={{ originY: 0 }}
+                  className="absolute left-0 top-0 h-full w-[2px] bg-primary"
+                />
+                <p className="text-foreground font-serif text-[1.6rem] md:text-[2rem] leading-[1.22]">
+                  We do not build generative models.
+                  <span className="text-primary"> We build the architecture that holds them accountable.</span>
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -214,7 +269,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Founder card */}
             <div className="relative bg-card border border-border p-10 group hover:border-primary/40 transition-colors overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,rgba(208,24,227,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,rgba(225,230,240,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary mb-8">FOUNDER</div>
               <div className="flex items-center gap-6 mb-8">
                 <div className="w-20 h-20 rounded-full border-2 border-primary/40 bg-primary/10 flex items-center justify-center font-serif text-3xl font-bold text-primary">
@@ -232,7 +287,7 @@ export default function About() {
 
             {/* HQ card */}
             <div className="relative bg-card border border-border p-10 group hover:border-primary/40 transition-colors overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,rgba(208,24,227,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,rgba(225,230,240,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary mb-8">HEADQUARTERS</div>
               <div className="space-y-6">
                 <div>
@@ -265,11 +320,11 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-40 bg-background text-center border-t border-border relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(208,24,227,0.1)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(225,230,240,0.1)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 relative z-10">
           <h2 className="text-5xl lg:text-7xl font-serif font-bold text-foreground mb-12">Deploy Elite Intelligence.</h2>
           <Link href="/contact">
-            <Button data-testid="btn-contact-team" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.4)] transition-all">
+            <Button data-testid="btn-contact-team" size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-12 h-16 text-sm font-mono uppercase tracking-widest border border-primary hover:shadow-[0_0_30px_rgba(225,230,240,0.4)] transition-all">
               Contact Our Team
             </Button>
           </Link>

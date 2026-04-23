@@ -79,7 +79,7 @@ export default function Solutions() {
       {/* Hero */}
       <section className="pt-40 pb-28 border-b border-border bg-card relative overflow-hidden">
         <CrosshairOverlay />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(208,24,227,0.12)_0%,transparent_55%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(225,230,240,0.12)_0%,transparent_55%)] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl">
             <motion.div
@@ -253,7 +253,7 @@ export default function Solutions() {
             <Button
               data-testid="btn-strategy-call"
               size="lg"
-              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-10 h-14 text-xs font-mono uppercase tracking-[0.25em] border border-primary hover:shadow-[0_0_30px_rgba(208,24,227,0.5)] transition-all"
+              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-10 h-14 text-xs font-mono uppercase tracking-[0.25em] border border-primary hover:shadow-[0_0_30px_rgba(225,230,240,0.5)] transition-all"
             >
               Book Strategy Call
             </Button>
