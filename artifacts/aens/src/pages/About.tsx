@@ -2,15 +2,18 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { CrosshairOverlay } from "@/components/ui/SectionElements";
-import { 
-  CrosshairIcon, 
-  ShieldNodeIcon, 
-  NeuralDiagramIcon, 
-  HexagonIcon, 
-  ConcentricArcsIcon 
+import {
+  CrosshairIcon,
+  ShieldNodeIcon,
+  NeuralDiagramIcon,
+  HexagonIcon,
+  ConcentricArcsIcon
 } from "@/components/icons";
+import { useSeo } from "@/hooks/use-seo";
+import { ROUTE_SEO } from "@/lib/seo";
 
 export default function About() {
+  useSeo(ROUTE_SEO["/about"]);
   const principles = [
     { title: "Precision", icon: CrosshairIcon, desc: "Our agents operate with surgical accuracy. Every action is auditable, every decision policy-bound." },
     { title: "Security", icon: ShieldNodeIcon, desc: "Built for the world's most sensitive environments. Zero trust by default, verifiable by design." },

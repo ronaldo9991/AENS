@@ -4,8 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ShieldNodeIcon, HexagonIcon, GridMatrixIcon, OrbitalRingIcon } from "@/components/icons";
 import { useState } from "react";
+import { useSeo } from "@/hooks/use-seo";
+import { ROUTE_SEO } from "@/lib/seo";
 
 export default function Contact() {
+  useSeo(ROUTE_SEO["/contact"]);
   const [isFocused, setIsFocused] = useState<string | null>(null);
 
   const contactMethods = [

@@ -1,0 +1,32 @@
+# https://aens.io
+# Public marketing site for AENS. Search engines and AI answer engines may crawl
+# the public pages so AENS can be discovered for autonomous AI agents,
+# enterprise AI systems, and trust infrastructure.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://aens.io/sitemap.xml
+# AI-readable site summary: https://aens.io/llms.txt
+Host: https://aens.io

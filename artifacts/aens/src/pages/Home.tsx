@@ -15,6 +15,8 @@ import {
 import { useRef, useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import PrecisionRobot from "@/components/PrecisionRobot";
+import { useSeo } from "@/hooks/use-seo";
+import { ROUTE_SEO } from "@/lib/seo";
 
 const Counter = ({ end, label, suffix = "", prefix = "" }: { end: number, label: string, suffix?: string, prefix?: string }) => {
   const ref = useRef(null);
@@ -61,6 +63,7 @@ const Counter = ({ end, label, suffix = "", prefix = "" }: { end: number, label:
 };
 
 export default function Home() {
+  useSeo(ROUTE_SEO["/"]);
   const capabilities = [
     { title: "Image Analysis", desc: "Pixel matrix anomalies", icon: HexagonIcon },
     { title: "Audio Forensics", desc: "Frequency wave mapping", icon: ConcentricArcsIcon },
@@ -72,12 +75,12 @@ export default function Home() {
     { title: "Zero-Trust Integration", desc: "API & webhook triggers", icon: GridMatrixIcon },
   ];
   const solutions = [
-    { num: "01", title: "Enterprise AI Systems", desc: "Secure, air-gapped AI infrastructure tailored to your stack.", icon: GridMatrixIcon },
-    { num: "02", title: "Autonomous AI Agents", desc: "24/7 agents that plan, execute and report across your business.", icon: OrbitalRingIcon },
-    { num: "03", title: "Workflow Automation", desc: "Replace repetitive ops with multi-step agentic pipelines.", icon: HexagonIcon },
-    { num: "04", title: "Knowledge & RAG", desc: "Private LLM gateways grounded in your enterprise data.", icon: NeuralDiagramIcon },
-    { num: "05", title: "Trust & Governance", desc: "Audit trails, policy guardrails and zero-trust integration.", icon: ShieldNodeIcon },
-    { num: "06", title: "Deepfake Detection", desc: "One of our specialised modules — synthetic media analysis at 99.9% accuracy.", icon: ConcentricArcsIcon },
+    { num: "01", title: "Enterprise AI Systems", desc: "Secure, air-gapped AI infrastructure tailored to your stack.", icon: GridMatrixIcon, href: "/solutions" },
+    { num: "02", title: "Autonomous AI Agents", desc: "24/7 agents that plan, execute and report across your business.", icon: OrbitalRingIcon, href: "/ai-agents" },
+    { num: "03", title: "Workflow Automation", desc: "Replace repetitive ops with multi-step agentic pipelines.", icon: HexagonIcon, href: "/solutions" },
+    { num: "04", title: "Knowledge & RAG", desc: "Private LLM gateways grounded in your enterprise data.", icon: NeuralDiagramIcon, href: "/solutions" },
+    { num: "05", title: "Trust & Governance", desc: "Audit trails, policy guardrails and zero-trust integration.", icon: ShieldNodeIcon, href: "/solutions" },
+    { num: "06", title: "Deepfake Detection", desc: "One of our specialised modules — synthetic media analysis at 99.9% accuracy.", icon: ConcentricArcsIcon, href: "/solutions" },
   ];
 
   const sectors = ["Defense", "Finance", "Global Media", "Government", "Critical Infrastructure"];
@@ -127,7 +130,7 @@ export default function Home() {
                 className="leading-[0.9] tracking-tight text-foreground"
               >
                 <span className="block font-sans text-[2.2rem] font-black uppercase sm:text-[3rem] lg:text-[4rem] xl:text-[5.2rem]">
-                  INTELLIGENCE
+                  AI AGENTS
                 </span>
                 <span className="mt-2 block font-serif text-[2.1rem] italic font-medium lowercase text-foreground/60 sm:text-[2.8rem] lg:text-[3.7rem] xl:text-[4.7rem]">
                   that run your
@@ -178,7 +181,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 1 }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
               >
-                <Link href="/solutions">
+                <Link href="/ai-agents">
                   <Button data-testid="btn-deploy-hero" size="lg" className="w-full sm:w-auto h-12 px-10 text-[11px] font-mono uppercase tracking-[0.24em] rounded-none bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 relative group overflow-hidden">
                     <span className="relative z-10">Deploy Intelligence</span>
                     <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out z-0" />
@@ -350,7 +353,7 @@ export default function Home() {
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-4">{sol.title}</h3>
                 <p className="text-muted-foreground font-sans text-sm leading-relaxed relative z-10 mb-8">{sol.desc}</p>
 
-                <Link href="/solutions">
+                <Link href={sol.href}>
                   <div className="flex items-center text-primary text-xs font-mono uppercase tracking-widest group-hover:tracking-[0.2em] transition-all duration-500 cursor-none">
                     Learn more <div className="w-0 h-[1px] bg-primary group-hover:w-4 transition-all duration-500 ml-2" /><ChevronRight className="w-4 h-4 ml-1" />
                   </div>
@@ -534,7 +537,7 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-card border-b border-border overflow-hidden relative">
         <div className="container mx-auto px-6 mb-12">
           <div className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase text-center">
-            DEPOLYED ACROSS SECURE ENVIRONMENTS
+            DEPLOYED ACROSS SECURE ENVIRONMENTS
           </div>
         </div>
         <div className="flex w-max animate-[scroll_40s_linear_infinite] opacity-60">

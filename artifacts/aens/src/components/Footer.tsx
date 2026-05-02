@@ -33,7 +33,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
               <li><Link href="/solutions"><span className="hover:text-primary cursor-pointer transition-colors">Custom AI Solutions</span></Link></li>
               <li><Link href="/solutions"><span className="hover:text-primary cursor-pointer transition-colors">Enterprise AI Systems</span></Link></li>
-              <li><Link href="/solutions"><span className="hover:text-primary cursor-pointer transition-colors">Autonomous AI Agents</span></Link></li>
+              <li><Link href="/ai-agents"><span className="hover:text-primary cursor-pointer transition-colors">Autonomous AI Agents</span></Link></li>
               <li><Link href="/solutions"><span className="hover:text-primary cursor-pointer transition-colors">Deepfake Detection</span></Link></li>
               <li><Link href="/solutions"><span className="hover:text-primary cursor-pointer transition-colors">Audio &amp; Video Intelligence</span></Link></li>
             </ul>

@@ -11,8 +11,11 @@ import {
   OrbitalRingIcon,
   GridMatrixIcon,
 } from "@/components/icons";
+import { useSeo } from "@/hooks/use-seo";
+import { ROUTE_SEO } from "@/lib/seo";
 
 export default function Solutions() {
+  useSeo(ROUTE_SEO["/solutions"]);
   const solutions = [
     {
       id: "custom-ai",

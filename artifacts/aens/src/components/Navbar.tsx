@@ -19,6 +19,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'AI Agents', path: '/ai-agents' },
     { name: 'About', path: '/about' },
     { name: 'Solutions', path: '/solutions' },
     { name: 'Contact', path: '/contact' },
@@ -71,12 +72,14 @@ export default function Navbar() {
             >
               {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
             </button>
-            <Button
-              data-testid="btn-book-consult"
-              className="rounded-full h-9 px-5 text-[10px] font-mono tracking-[0.2em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(225,230,240,0.35)] hover:shadow-[0_0_28px_rgba(225,230,240,0.55)] transition-all"
-            >
-              Book Consult
-            </Button>
+            <Link href="/contact">
+              <Button
+                data-testid="btn-book-consult"
+                className="rounded-full h-9 px-5 text-[10px] font-mono tracking-[0.2em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(225,230,240,0.35)] hover:shadow-[0_0_28px_rgba(225,230,240,0.55)] transition-all"
+              >
+                Book Consult
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -117,9 +120,14 @@ export default function Navbar() {
                 {theme === 'dark' ? 'Light' : 'Dark'}
               </span>
             </button>
-            <Button className="rounded-full bg-primary text-primary-foreground text-[10px] font-mono tracking-widest uppercase">
-              Consult
-            </Button>
+            <Link href="/contact">
+              <Button
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-full bg-primary text-primary-foreground text-[10px] font-mono tracking-widest uppercase"
+              >
+                Consult
+              </Button>
+            </Link>
           </div>
         </div>
       )}
