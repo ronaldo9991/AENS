@@ -334,10 +334,10 @@ export default function Home() {
       </section>
 
       {/* 4. SOLUTION ARCHITECTURE */}
-      <section className="py-20 md:py-28 bg-card relative border-t border-border">
-        <SectionDivider id="03" label="SOLUTION ARCHITECTURE" />
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-12 md:py-16 bg-card relative border-t border-border">
+        <SectionDivider id="03" label="SOLUTION ARCHITECTURE" className="mt-6 mb-10" />
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {solutions.map((sol, i) => (
               <motion.div
                 key={i}
@@ -345,16 +345,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-10 bg-background border border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden"
+                className="group min-h-[268px] p-6 md:p-7 bg-background border border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden flex flex-col"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="font-mono text-xs text-primary/40 mb-6">{sol.num}</div>
-                <sol.icon className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors duration-500 mb-8" />
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-4">{sol.title}</h3>
-                <p className="text-muted-foreground font-sans text-sm leading-relaxed relative z-10 mb-8">{sol.desc}</p>
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="font-mono text-[11px] text-primary/40 mb-4">{sol.num}</div>
+                <sol.icon className="w-9 h-9 text-muted-foreground group-hover:text-primary transition-colors duration-500 mb-6" />
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">{sol.title}</h3>
+                <p className="text-muted-foreground font-sans text-sm leading-relaxed relative z-10 mb-6">{sol.desc}</p>
 
                 <Link href={sol.href}>
-                  <div className="flex items-center text-primary text-xs font-mono uppercase tracking-widest group-hover:tracking-[0.2em] transition-all duration-500 cursor-none">
+                  <div className="mt-auto flex items-center text-primary text-[11px] font-mono uppercase tracking-widest group-hover:tracking-[0.18em] transition-all duration-500 cursor-none">
                     Learn more <div className="w-0 h-[1px] bg-primary group-hover:w-4 transition-all duration-500 ml-2" /><ChevronRight className="w-4 h-4 ml-1" />
                   </div>
                 </Link>

@@ -1,8 +1,16 @@
 import React from "react";
 
-export function SectionDivider({ id, label }: { id: string; label: string }) {
+export function SectionDivider({
+  id,
+  label,
+  className = "mt-16 mb-16",
+}: {
+  id: string;
+  label: string;
+  className?: string;
+}) {
   return (
-    <div className="relative w-full h-12 flex items-center justify-center opacity-80 mt-16 mb-16">
+    <div className={`relative w-full h-12 flex items-center justify-center opacity-80 ${className}`}>
       <div className="absolute inset-0 flex items-center">
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       </div>
