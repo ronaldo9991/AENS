@@ -31,25 +31,26 @@ export default function Navbar() {
         isScrolled ? 'glass py-3 border-b border-border/50' : 'bg-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-3 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
+        <div className="flex items-center justify-between gap-4">
           {/* Left: Logo */}
-          <div className="flex justify-start">
+          <div className="flex shrink-0 justify-start">
             <Logo size="md" />
           </div>
 
           {/* Center: Nav (desktop) */}
           <nav
-            className="hidden md:flex justify-center items-center gap-1 px-2 py-1.5 rounded-full border border-border/60 bg-card/40 backdrop-blur-md w-fit mx-auto"
+            className="hidden lg:flex shrink-0 items-center justify-center gap-1 rounded-full border border-border/60 bg-card/40 px-2 py-1.5 backdrop-blur-md"
             data-testid="nav-center"
           >
             {navLinks.map((link) => {
               const active = location === link.path;
+              const testId = `nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`;
               return (
                 <Link key={link.path} href={link.path}>
                   <span
-                    data-testid={`nav-${link.name.toLowerCase()}`}
-                    className={`relative px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-[0.18em] cursor-pointer transition-all ${
+                    data-testid={testId}
+                    className={`relative inline-flex h-8 min-w-[72px] shrink-0 items-center justify-center whitespace-nowrap rounded-full px-3 text-center font-mono text-[11px] uppercase leading-none tracking-[0.13em] transition-all xl:px-4 ${
                       active
                         ? 'text-primary-foreground bg-primary shadow-[0_0_20px_rgba(225,230,240,0.45)]'
                         : 'text-muted-foreground hover:text-foreground'
@@ -63,7 +64,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right: Theme toggle + CTA */}
-          <div className="hidden md:flex justify-end items-center gap-3">
+          <div className="hidden shrink-0 items-center justify-end gap-3 lg:flex">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="w-9 h-9 flex items-center justify-center rounded-full border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
@@ -84,7 +85,7 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-foreground justify-self-end"
+            className="text-foreground lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -95,7 +96,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full glass border-b border-border shadow-lg py-4 px-6 flex flex-col gap-4 md:hidden">
+        <div className="absolute top-full left-0 w-full glass border-b border-border shadow-lg py-4 px-6 flex flex-col gap-4 lg:hidden">
           <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link key={link.path} href={link.path}>
