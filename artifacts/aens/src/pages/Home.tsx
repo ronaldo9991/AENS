@@ -84,6 +84,33 @@ export default function Home() {
   ];
 
   const sectors = ["Defense", "Finance", "Global Media", "Government", "Critical Infrastructure"];
+  const homepageBuilds = [
+    {
+      title: "AI Agents",
+      desc: "Autonomous agents that plan, execute, report, and integrate with enterprise tools.",
+      icon: OrbitalRingIcon,
+    },
+    {
+      title: "Deepfake Detection",
+      desc: "Synthetic media detection for images, audio, video, files, and suspicious content workflows.",
+      icon: ConcentricArcsIcon,
+    },
+    {
+      title: "Automation Systems",
+      desc: "Workflow automation for operations, approvals, reporting, and internal processes.",
+      icon: HexagonIcon,
+    },
+    {
+      title: "WhatsApp Bots",
+      desc: "Conversational bots for support, sales, lead capture, onboarding, and status updates.",
+      icon: NeuralDiagramIcon,
+    },
+    {
+      title: "Custom Web Apps",
+      desc: "Dashboards, portals, internal tools, AI products, and business software.",
+      icon: GridMatrixIcon,
+    },
+  ];
 
   return (
     <motion.main 
@@ -208,6 +235,47 @@ export default function Home() {
           </div>
         </div>
 
+      </section>
+
+      {/* 2. SEARCHABLE POSITIONING */}
+      <section id="what-aens-builds" className="relative border-b border-border bg-background py-16 md:py-20">
+        <div className="container mx-auto px-6 lg:px-12 xl:px-16">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-5">
+              <div className="mb-5 flex items-center gap-4">
+                <div className="h-px w-8 bg-primary" />
+                <span className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-primary">
+                  AENS.io
+                </span>
+              </div>
+              <h2 className="font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
+                Artificial Intelligence Enterprise Nervous System.
+              </h2>
+              <p className="mt-6 max-w-xl border-l border-primary/40 pl-5 font-sans text-base leading-relaxed text-muted-foreground md:text-lg">
+                AENS.io builds AI agents, deepfake detection systems,
+                automation workflows, WhatsApp bots, custom web apps, and
+                enterprise AI products for businesses that need production
+                software, not experiments.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7">
+              <ul className="grid gap-px border border-border/60 bg-border/60 p-px sm:grid-cols-2">
+                {homepageBuilds.map((item) => (
+                  <li key={item.title} className="group bg-card p-6 transition-colors hover:bg-muted/10">
+                    <item.icon className="mb-6 h-7 w-7 text-primary/80" />
+                    <h3 className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-sm leading-relaxed text-muted-foreground">
+                      {item.desc}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 2. CAPABILITY MATRIX */}

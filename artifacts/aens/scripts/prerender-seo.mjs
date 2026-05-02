@@ -55,14 +55,21 @@ const ROUTES = [
 const HOME_ROUTE = {
   path: "/",
   title:
-    "AENS — Autonomous AI Agents for Enterprise Operations",
+    "AENS.io | AI Agents & Enterprise AI Solutions",
   description:
-    "AENS designs and deploys autonomous AI agents, custom enterprise AI systems, deepfake detection, and verifiable trust infrastructure for B2B operations.",
+    "AENS builds AI agents, deepfake detection systems, automation workflows, and enterprise AI products.",
   keywords:
-    "AENS, AI agents, autonomous AI agents, enterprise AI agents, enterprise AI, custom AI solutions, deepfake detection, AI workflow automation, agentic AI, RAG, private LLM, AI governance",
-  h1: "AENS AI Agents for Enterprise Operations",
+    "AENS.io, AENS, AI agents, enterprise AI solutions, deepfake detection systems, automation workflows, WhatsApp bots, custom web apps, enterprise AI products",
+  h1: "AENS.io | AI Agents & Enterprise AI Solutions",
   blurb:
-    "AENS designs and deploys autonomous AI agents, custom enterprise AI systems, deepfake detection and verifiable trust infrastructure for B2B operations.",
+    "Artificial Intelligence Enterprise Nervous System. AENS builds AI agents, deepfake detection systems, automation workflows, WhatsApp bots, custom web apps, and enterprise AI products.",
+  items: [
+    "AI Agents",
+    "Deepfake Detection",
+    "Automation Systems",
+    "WhatsApp Bots",
+    "Custom Web Apps",
+  ],
 };
 
 function escapeHtml(s) {
@@ -101,6 +108,11 @@ function buildSeoSnapshot(route) {
   return `<div id="seo-snapshot" style="position:absolute;left:-9999px;top:-9999px">
       <h1>${escapeHtml(route.h1)}</h1>
       <p>${escapeHtml(route.blurb)}</p>
+      ${
+        route.items
+          ? `<ul>${route.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`
+          : ""
+      }
       <nav aria-label="Primary">
         <a href="/">Home</a>
         <a href="/about">About</a>

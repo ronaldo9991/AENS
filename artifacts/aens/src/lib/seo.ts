@@ -1,5 +1,5 @@
 export const SITE_URL = "https://aens.io";
-export const SITE_NAME = "AENS";
+export const SITE_NAME = "AENS.io";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
 
 export type RouteSeo = {
@@ -39,16 +39,37 @@ export const SERVICES = [
     description:
       "Policy-bound workflows, replayable audit logs, approval gates, and zero-trust integration for AI systems.",
   },
+  {
+    name: "Automation Systems",
+    path: "/solutions",
+    serviceType: "Business workflow automation",
+    description:
+      "AENS builds automation systems that connect data, tools, approvals, and reporting across enterprise operations.",
+  },
+  {
+    name: "WhatsApp Bots",
+    path: "/solutions",
+    serviceType: "Conversational automation",
+    description:
+      "WhatsApp bots for support, sales, onboarding, lead capture, status updates, and internal workflow automation.",
+  },
+  {
+    name: "Custom Web Apps",
+    path: "/solutions",
+    serviceType: "Custom software development",
+    description:
+      "Custom web applications for AI products, internal tools, dashboards, automation portals, and enterprise workflows.",
+  },
 ];
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
     path: "/",
-    title: "AENS — Autonomous AI Agents for Enterprise Operations",
+    title: "AENS.io | AI Agents & Enterprise AI Solutions",
     description:
-      "AENS designs and deploys autonomous AI agents, custom enterprise AI systems, deepfake detection, and verifiable trust infrastructure for B2B operations.",
+      "AENS builds AI agents, deepfake detection systems, automation workflows, and enterprise AI products.",
     keywords:
-      "AENS, AI agents, autonomous AI agents, enterprise AI agents, enterprise AI, custom AI solutions, deepfake detection, AI workflow automation, agentic AI, RAG, private LLM, AI governance",
+      "AENS.io, AENS, AI agents, enterprise AI solutions, deepfake detection systems, automation workflows, WhatsApp bots, custom web apps, enterprise AI products",
   },
   "/about": {
     path: "/about",
@@ -97,7 +118,7 @@ export function buildOrganizationJsonLd(): string {
     logo: `${SITE_URL}/AENSLOGO.png`,
     image: DEFAULT_OG_IMAGE,
     description:
-      "AENS designs and deploys autonomous AI agents and intelligent enterprise systems for production B2B operations.",
+      "AENS.io builds AI agents, deepfake detection systems, automation workflows, WhatsApp bots, custom web apps, and enterprise AI products.",
     email: "admin@aens.io",
     foundingLocation: {
       "@type": "Place",
@@ -132,8 +153,14 @@ export function buildOrganizationJsonLd(): string {
       "AI Agents",
       "Autonomous AI Agents",
       "Enterprise AI Agents",
+      "Enterprise AI Solutions",
       "Enterprise AI Systems",
       "Deepfake Detection",
+      "Deepfake Detection Systems",
+      "Automation Workflows",
+      "Automation Systems",
+      "WhatsApp Bots",
+      "Custom Web Apps",
       "AI Governance",
       "Workflow Automation",
       "Retrieval Augmented Generation",
