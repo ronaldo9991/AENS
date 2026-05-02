@@ -19,7 +19,6 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'AI Agents', path: '/ai-agents' },
     { name: 'About', path: '/about' },
     { name: 'Solutions', path: '/solutions' },
     { name: 'Contact', path: '/contact' },

@@ -17,17 +17,6 @@ const OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
 
 const ROUTES = [
   {
-    path: "/ai-agents",
-    title: "AI Agents for Enterprise Operations — AENS",
-    description:
-      "AENS builds autonomous AI agents for enterprise workflows: planning, tool use, approvals, execution, reporting, and governance across business systems.",
-    keywords:
-      "AI agents, AENS AI agents, autonomous AI agents, enterprise AI agents, agentic workflow automation, AI agent development, AI agent consulting",
-    h1: "AI Agents for Enterprise Operations",
-    blurb:
-      "AENS builds autonomous AI agents for enterprise workflows: planning, tool use, approvals, execution, reporting, and governance across business systems.",
-  },
-  {
     path: "/about",
     title: "About AENS — Engineering Autonomy for Enterprise",
     description:
@@ -114,7 +103,6 @@ function buildSeoSnapshot(route) {
       <p>${escapeHtml(route.blurb)}</p>
       <nav aria-label="Primary">
         <a href="/">Home</a>
-        <a href="/ai-agents">AI Agents</a>
         <a href="/about">About</a>
         <a href="/solutions">Solutions</a>
         <a href="/contact">Contact</a>

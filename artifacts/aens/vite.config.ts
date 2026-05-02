@@ -30,7 +30,10 @@ if (!basePath) {
 // Serve prerendered per-route index.html files for /about, /solutions, /contact
 // when they're hit without a trailing slash. Without this, vite preview falls
 // back to root index.html for `/about`, defeating the SEO prerender.
-const PRERENDERED_ROUTES = ["/ai-agents", "/about", "/solutions", "/contact"];
+const PRERENDERED_ROUTES = ["/about", "/solutions", "/contact"];
+const REMOVED_ROUTES: Record<string, string> = {
+  "/ai-agents": "/solutions",
+};
 
 function prerenderedRoutesPlugin(): Plugin {
   return {
@@ -42,6 +45,13 @@ function prerenderedRoutesPlugin(): Plugin {
         const url = req.url.split("?")[0];
         if (!url) return next();
         const stripped = url.replace(/\/+$/, "");
+        const redirectTo = REMOVED_ROUTES[stripped];
+        if (redirectTo) {
+          _res.statusCode = 301;
+          _res.setHeader("Location", redirectTo);
+          _res.end();
+          return;
+        }
         if (PRERENDERED_ROUTES.includes(stripped)) {
           const file = path.join(dist, stripped, "index.html");
           if (fs.existsSync(file)) {

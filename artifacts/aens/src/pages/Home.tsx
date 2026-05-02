@@ -76,7 +76,7 @@ export default function Home() {
   ];
   const solutions = [
     { num: "01", title: "Enterprise AI Systems", desc: "Secure, air-gapped AI infrastructure tailored to your stack.", icon: GridMatrixIcon, href: "/solutions" },
-    { num: "02", title: "Autonomous AI Agents", desc: "24/7 agents that plan, execute and report across your business.", icon: OrbitalRingIcon, href: "/ai-agents" },
+    { num: "02", title: "Autonomous AI Agents", desc: "24/7 agents that plan, execute and report across your business.", icon: OrbitalRingIcon, href: "/solutions" },
     { num: "03", title: "Workflow Automation", desc: "Replace repetitive ops with multi-step agentic pipelines.", icon: HexagonIcon, href: "/solutions" },
     { num: "04", title: "Knowledge & RAG", desc: "Private LLM gateways grounded in your enterprise data.", icon: NeuralDiagramIcon, href: "/solutions" },
     { num: "05", title: "Trust & Governance", desc: "Audit trails, policy guardrails and zero-trust integration.", icon: ShieldNodeIcon, href: "/solutions" },
@@ -181,7 +181,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 1 }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
               >
-                <Link href="/ai-agents">
+                <Link href="/solutions">
                   <Button data-testid="btn-deploy-hero" size="lg" className="w-full sm:w-auto h-12 px-10 text-[11px] font-mono uppercase tracking-[0.24em] rounded-none bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 relative group overflow-hidden">
                     <span className="relative z-10">Deploy Intelligence</span>
                     <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out z-0" />

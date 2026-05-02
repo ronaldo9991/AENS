@@ -5,7 +5,6 @@
 ## Canonical Site
 
 - Website: https://aens.io/
-- AI agents: https://aens.io/ai-agents
 - Solutions: https://aens.io/solutions
 - About: https://aens.io/about
 - Contact: https://aens.io/contact

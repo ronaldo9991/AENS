@@ -13,7 +13,7 @@ export type RouteSeo = {
 export const SERVICES = [
   {
     name: "Autonomous AI Agents",
-    path: "/ai-agents",
+    path: "/solutions",
     serviceType: "Enterprise AI agent development",
     description:
       "AENS builds autonomous AI agents that plan, decide, execute, and report across enterprise tools with human approvals, audit trails, and policy guardrails.",
@@ -49,14 +49,6 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
       "AENS designs and deploys autonomous AI agents, custom enterprise AI systems, deepfake detection, and verifiable trust infrastructure for B2B operations.",
     keywords:
       "AENS, AI agents, autonomous AI agents, enterprise AI agents, enterprise AI, custom AI solutions, deepfake detection, AI workflow automation, agentic AI, RAG, private LLM, AI governance",
-  },
-  "/ai-agents": {
-    path: "/ai-agents",
-    title: "AI Agents for Enterprise Operations — AENS",
-    description:
-      "AENS builds autonomous AI agents for enterprise workflows: planning, tool use, approvals, execution, reporting, and governance across business systems.",
-    keywords:
-      "AI agents, AENS AI agents, autonomous AI agents, enterprise AI agents, agentic workflow automation, AI agent development, AI agent consulting",
   },
   "/about": {
     path: "/about",

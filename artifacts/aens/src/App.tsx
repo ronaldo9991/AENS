@@ -7,7 +7,6 @@ import Layout from "@/components/Layout";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 
 import Home from "@/pages/Home";
-import AiAgents from "@/pages/AiAgents";
 import About from "@/pages/About";
 import Solutions from "@/pages/Solutions";
 import Contact from "@/pages/Contact";
@@ -19,7 +18,6 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/ai-agents" component={AiAgents} />
       <Route path="/about" component={About} />
       <Route path="/solutions" component={Solutions} />
       <Route path="/contact" component={Contact} />
