@@ -1,0 +1,472 @@
+Design a WORLD-CLASS frontend website for an elite AI company called:
+
+AENS
+Artificial Intelligence Enterprise Nervous System
+
+This is NOT a generic startup site.
+
+This must feel like:
+Apple + Palantir + Tesla + OpenAI + elite cyber intelligence company.
+
+Use premium modern web design inspired by the highest quality interactive websites, advanced Wix Studio experiences, motion-led luxury landing pages, and award-winning product websites.
+
+====================================================
+PRIMARY GOAL
+====================================================
+
+Create a breathtaking website experience that feels worth BILLIONS.
+
+The website must instantly communicate:
+
+- premium AI company
+- serious enterprise trust platform
+- futuristic but elegant
+- highly intelligent
+- elite engineering
+- sophisticated design taste
+- unforgettable brand presence
+
+AENS flagship capability:
+
+Deepfake Detection + Synthetic Media Intelligence
+
+Also position AENS as:
+Enterprise AI systems company
+
+====================================================
+IMPORTANT COLOR RULE
+====================================================
+
+DO NOT USE BLUE.
+DO NOT USE GREEN.
+
+Need Dark Mode + Light Mode.
+
+Use a premium luxury palette only.
+
+Suggested Palette:
+
+DARK MODE:
+- Obsidian Black
+- Graphite
+- Carbon Grey
+- Warm Charcoal
+- Matte Titanium
+- Soft White text
+
+ACCENTS:
+- Gold
+- Champagne
+- Platinum
+- Copper
+- Ivory
+- Warm Amber
+- Silver
+
+LIGHT MODE:
+- Soft White
+- Pearl
+- Bone
+- Warm Grey
+- Light Stone
+- Charcoal text
+
+This must feel expensive and world-class.
+
+====================================================
+DESIGN STYLE
+====================================================
+
+Use the best design language inspired by premium modern websites:
+
+- cinematic hero sections
+- advanced scroll storytelling
+- luxurious spacing
+- bold typography
+- smooth page transitions
+- subtle layered depth
+- glass + matte surfaces
+- premium gradients
+- section reveals on scroll
+- parallax movement
+- floating elements
+- premium hover states
+- refined micro-interactions
+- smooth loaders
+- animated transitions
+- elegant responsiveness
+
+NO cheap startup look.
+NO template look.
+NO childish SaaS design.
+NO overused glowing neon tech style.
+
+====================================================
+WEBSITE STRUCTURE
+====================================================
+
+Need only frontend marketing pages:
+
+1. Homepage
+2. About Page
+3. Contact Page
+
+Optional:
+4. Solutions Page
+
+====================================================
+GLOBAL NAVBAR
+====================================================
+
+Sticky premium navbar.
+
+Include:
+
+- Logo AENS
+- Home
+- About
+- Solutions
+- Contact
+
+Right side:
+
+- Dark / Light mode toggle
+- CTA button: Book Consultation
+
+Navbar animation:
+- transparent on top
+- blur on scroll
+- shrink slightly when scrolling
+
+====================================================
+HOMEPAGE
+====================================================
+
+Create one of the best AI company homepages ever.
+
+----------------------------------------------------
+SECTION 1 HERO
+----------------------------------------------------
+
+Massive cinematic hero section.
+
+Headline examples:
+
+Artificial Intelligence Built for Trust.
+
+or
+
+The Enterprise Nervous System for the AI Era.
+
+Subheadline:
+AENS builds AI systems that detect synthetic threats, analyze trust risks, and power enterprise intelligence.
+
+Buttons:
+- Explore AENS
+- Contact Us
+
+Hero visuals:
+
+- premium abstract neural network
+- moving intelligence grid
+- cinematic particles
+- elegant rotating geometry
+- layered trust signals
+- subtle gold light trails
+- premium 3D motion scene
+
+Hero animations:
+- floating layers
+- mouse reactive movement
+- soft pulse effects
+- smooth text reveal
+- stagger entrance
+
+This section must feel unforgettable.
+
+----------------------------------------------------
+SECTION 2 TRUST STRIP
+----------------------------------------------------
+
+Animated logo / capability strip.
+
+Show:
+
+- Image Analysis
+- Audio Analysis
+- Video Analysis
+- File Intelligence
+- Enterprise AI
+- Deepfake Detection
+
+Auto-moving ticker or elegant fade slider.
+
+----------------------------------------------------
+SECTION 3 FLAGSHIP PRODUCT
+----------------------------------------------------
+
+Highlight:
+
+Deepfake Detection & Synthetic Media Intelligence
+
+Use a split layout:
+
+Left:
+Powerful copy
+
+Right:
+Animated media scanner UI mockup
+
+Include:
+
+- images
+- audio
+- video
+- files
+
+Motion:
+scan lines
+loading pulses
+frame highlights
+waveform movement
+
+----------------------------------------------------
+SECTION 4 CORE SOLUTIONS
+----------------------------------------------------
+
+Premium card grid.
+
+Cards:
+
+1. Deepfake Detection
+2. Enterprise AI Systems
+3. AI Agents
+4. Trust Infrastructure
+5. Synthetic Media Intelligence
+6. Security Automation
+
+Cards animate on hover:
+lift + glow edge + icon motion
+
+----------------------------------------------------
+SECTION 5 WHY AENS
+----------------------------------------------------
+
+Luxury storytelling section.
+
+Use staggered reveal blocks:
+
+- Precision Engineering
+- Multi-modal Intelligence
+- Enterprise Grade Security
+- Fast Deployment
+- Cross Device Agents
+- Desktop + Mobile Monitoring
+
+----------------------------------------------------
+SECTION 6 EXPERIENCE SECTION
+----------------------------------------------------
+
+Showcase:
+
+Our intelligent agents run on PC and mobile devices to detect deepfake files and suspicious media in real time.
+
+Use animated device mockups:
+
+- desktop monitor
+- laptop
+- phone
+
+Show live scanning animations.
+
+----------------------------------------------------
+SECTION 7 PREMIUM STATS
+----------------------------------------------------
+
+Animated counters:
+
+- 4 Media Types
+- 24/7 Detection
+- Real-Time Agents
+- Enterprise Ready
+- AI Powered
+- Global Scale
+
+Counters animate when visible.
+
+----------------------------------------------------
+SECTION 8 CTA
+----------------------------------------------------
+
+Massive premium CTA section.
+
+Headline:
+
+Ready to Build Trust in the AI Era?
+
+Buttons:
+- Contact AENS
+- Book Strategy Call
+
+Use luxurious lighting background.
+
+----------------------------------------------------
+SECTION 9 FOOTER
+----------------------------------------------------
+
+Elegant footer.
+
+Include:
+- logo
+- quick links
+- company line
+- contact
+- social icons
+
+====================================================
+ABOUT PAGE
+====================================================
+
+Create a premium company story page.
+
+Sections:
+
+1. Hero:
+About AENS
+
+2. What AENS Means:
+Artificial Intelligence Enterprise Nervous System
+
+3. Mission:
+Build trust-first enterprise AI systems.
+
+4. Core Principles:
+- Precision
+- Security
+- Intelligence
+- Execution
+- Trust
+
+5. Our Focus:
+- Deepfake detection
+- AI systems
+- Enterprise solutions
+
+6. Final CTA
+
+Animations:
+text reveal, section transitions, image parallax.
+
+====================================================
+CONTACT PAGE
+====================================================
+
+One of the most premium contact pages.
+
+Sections:
+
+1. Hero:
+Let’s Build Something Serious.
+
+2. Split layout:
+
+Left:
+premium message
+
+Right:
+glass contact form
+
+Fields:
+- Name
+- Company
+- Email
+- Inquiry Type
+- Message
+
+3. Inquiry Types:
+- Deepfake Detection
+- Enterprise AI
+- Consulting
+- Partnerships
+- General Inquiry
+
+4. Contact details cards
+
+5. Final CTA
+
+====================================================
+ANIMATION SYSTEM
+====================================================
+
+Use world-class animation across all pages.
+
+Need:
+
+- page transitions
+- smooth scrolling
+- section reveal
+- mouse parallax
+- card hover lift
+- animated counters
+- staggered text entrance
+- loading screen intro
+- premium button interactions
+- glowing cursor trail (subtle)
+- image zoom on scroll
+- layered motion backgrounds
+
+Motion must feel expensive.
+
+Use GSAP / Framer Motion level quality.
+
+====================================================
+TYPOGRAPHY
+====================================================
+
+Use elite typography.
+
+Style:
+Apple + Vercel + luxury editorial.
+
+Headlines:
+large, bold, sharp
+
+Body:
+minimal and elegant
+
+Numbers:
+strong premium style
+
+====================================================
+UX RULES
+====================================================
+
+Need:
+
+- perfect spacing
+- high readability
+- fast interactions
+- mobile first responsiveness
+- premium desktop experience
+- tablet optimized
+- clean navigation
+- conversion focused CTA placement
+
+====================================================
+FINAL EXPECTATION
+====================================================
+
+When users open this website they should think:
+
+“This company is elite.”
+“This feels like a billion-dollar AI brand.”
+“This is one of the best websites I’ve seen.”
+
+Every pixel intentional.
+Every animation premium.
+Every section unforgettable.
+
+Build dark mode + light mode.
+No blue.
+No green.
+Luxury only.

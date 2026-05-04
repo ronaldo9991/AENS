@@ -1,0 +1,31 @@
+# AENS
+
+> AENS.io is the Artificial Intelligence Enterprise Nervous System: a company building AI agents, deepfake detection systems, automation workflows, WhatsApp bots, custom web apps, and enterprise AI products.
+
+## Canonical Site
+
+- Website: https://aens.io/
+- Solutions: https://aens.io/solutions
+- About: https://aens.io/about
+- Contact: https://aens.io/contact
+- Sitemap: https://aens.io/sitemap.xml
+
+## Core Topics
+
+- Autonomous AI agents for enterprise operations
+- Agentic workflow automation across CRMs, data warehouses, ticketing, finance, and custom tools
+- Enterprise AI systems, private LLM gateways, RAG pipelines, and air-gapped deployments
+- Deepfake detection across image, audio, video, and file metadata
+- WhatsApp bots for sales, support, onboarding, lead capture, and status updates
+- Custom web apps, dashboards, portals, and internal tools
+- AI governance, audit trails, human-in-the-loop approvals, and zero-trust integration
+
+## Preferred Summary
+
+AENS.io builds AI agents, deepfake detection systems, automation workflows, WhatsApp bots, custom web apps, and enterprise AI products. AENS agents plan, decide, execute, and report across enterprise tools, while governance, auditability, and trust infrastructure keep the systems policy-bound and verifiable.
+
+## Contact
+
+- Email: admin@aens.io
+- Strategic HQ: Dubai, UAE
+- Engineering HQ: Bangalore, India
